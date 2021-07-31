@@ -6,6 +6,8 @@ import PhotoByIdContainer from "../../containers/PhotoByIdContainer";
 import PhotoRelatedContainer from "../../containers/PhotoRelatedContainer";
 import Tags from "../Tags";
 import PhotoSection from "../Photos/PhotoSection";
+import {IconClose} from "../../../icons";
+import RelatedCollectionsContainer from "../../containers/RelatedCollectionsContainer";
 
 const PhotoPopup = ({onClose}) => {
 
@@ -22,9 +24,16 @@ const PhotoPopup = ({onClose}) => {
                     <PhotoSection title={'Related Photos'}>
                         <PhotoRelatedContainer/>
                     </PhotoSection>
+                    <PhotoSection title={'Related Collections'}>
+                        <RelatedCollectionsContainer/>
+                    </PhotoSection>
                 </Content>
             </Track>
-            <Screen onClick={onClose}/>
+            <Screen onClick={onClose}>
+                <Button>
+                    <IconClose/>
+                </Button>
+            </Screen>
         </Container>
     )
 }
@@ -58,5 +67,23 @@ const Track = styled.div`
 
 const Content = styled.div`
   background: #fff;
+`;
+
+const Button = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  opacity: 0.8;
+  fill: #fff;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
 `;
 export default PhotoPopup;

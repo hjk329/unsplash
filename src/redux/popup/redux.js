@@ -1,11 +1,13 @@
 const initialState = {
-    isVisible : false
+    isVisible : false,
+
 }
 
 export const Action = {
     Types : {
         SHOW_POPUP : 'SHOW_POPUP',
-        HANDLE_POPUP : 'HANDLE_POPUP'
+        HANDLE_POPUP : 'HANDLE_POPUP',
+        CLOSE_POPUP : 'CLOSE_POPUP'
     },
     Creators : {
         showPopup : (payload) => {
@@ -18,6 +20,12 @@ export const Action = {
             return {
                 type : Action.Types.HANDLE_POPUP,
                 data
+            }
+        },
+        closePopup : (payload) => {
+            return {
+                type : Action.Types.CLOSE_POPUP,
+                payload
             }
         }
     }
@@ -32,6 +40,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isVisible: action.data
+
             }
         }
     }

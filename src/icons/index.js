@@ -62,3 +62,10 @@ export const IconArrowRight = () => (
         <path d="M11.3333 7.3333l2-2L24 16 13.3333 26.6666l-2-2L20 16l-8.6667-8.6667z"/>
     </svg>
 )
+
+export const IconClose = () => (
+    <svg width="32" height="32" className="_3p8U1" viewBox="0 0 32 32" version="1.1" aria-hidden="false">
+        <path
+            d="M25.33 8.55l-1.88-1.88-7.45 7.45-7.45-7.45-1.88 1.88 7.45 7.45-7.45 7.45 1.88 1.88 7.45-7.45 7.45 7.45 1.88-1.88-7.45-7.45z"/>
+    </svg>
+)

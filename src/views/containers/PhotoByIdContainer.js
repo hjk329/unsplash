@@ -15,6 +15,6 @@ const PhotoByIdContainer = () => {
 }
 
 const Container = styled.div`
-
+  text-align: center;
 `;
 export default PhotoByIdContainer;
