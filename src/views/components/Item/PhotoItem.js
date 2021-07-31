@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components'
 
 
-const PhotoItem = ({data=[]}) => {
+const PhotoItem = ({data=[], onClickItem}) => {
     return (
-        <Container>
+        <Container onClick={() => onClickItem(data.id)}>
             <Thumb>
                 <img src={data.urls.regular} alt=""/>
             </Thumb>

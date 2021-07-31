@@ -9,6 +9,7 @@ import Search from "./views/pages/Search";
 import HeaderContainer from "./views/containers/HeaderContainer";
 import TopicBySlug from "./views/pages/TopicBySlug";
 import Topic from "./views/pages/Topic";
+import PhotoPopupContainer from "./views/containers/PhotoPopupContainer";
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Container>
             <GlobalStyle/>
             <HeaderContainer/>
+            <PhotoPopupContainer/>
             <Switch>
                 <Route exact path={'/'} component={Home}/>
                 <Route exact path={'/search/photos/:query'} component={Search}/>

@@ -18,9 +18,15 @@ function* getPhotosRelated({id}) {
  yield put(Action.Creators.setPhotosRelated(result.data))
 }
 
+function* getPhotoById({payload}) {
+ const result = yield call(API.getPhotoById, payload)
+ yield put(Action.Creators.setPhotoById(result.data))
+}
+
 function* saga() {
  yield takeLatest(Action.Types.GET_PHOTOS, getPhotos)
  yield takeLatest(Action.Types.GET_PHOTOS_RELATED, getPhotosRelated)
+ yield takeLatest(Action.Types.GET_PHOTO_BY_ID, getPhotoById)
 }
 
 export default saga;
