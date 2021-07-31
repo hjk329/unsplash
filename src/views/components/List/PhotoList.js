@@ -1,15 +1,22 @@
 import React from 'react';
 import styled from 'styled-components'
-import _ from 'lodash';
+import {useDispatch} from "react-redux";
 
 import PhotoItem from "../Item/PhotoItem";
 import {makePhotosGroup} from "../../../lib/common";
+import {Action} from "../../../redux/popup/redux";
 
 
 const PhotoList = ({data = []}) => {
 
 
     const photoGroup = makePhotosGroup(data);
+
+    const dispatch = useDispatch();
+
+    const onClickItem = (id) => {
+        dispatch(Action.Creators.showPopup(id))
+    }
 
     return (
         <Container className={"PhotoListContainer"}>
@@ -20,7 +27,9 @@ const PhotoList = ({data = []}) => {
                             {
                                 photosGroup.map((item) => (
                                     <ItemWrapper>
-                                        <PhotoItem data={item}/>
+                                        <PhotoItem data={item}
+                                                    onClickItem={onClickItem}
+                                        />
                                     </ItemWrapper>
                                 ))
                             }
