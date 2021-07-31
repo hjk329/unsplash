@@ -1,22 +1,60 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
+import cn from 'classnames'
+
 import {IconArrowLeft, IconArrowRight} from "../../../icons";
 
 
-const ScrollMenu = ({data=[], renderItem}) => {
+const ScrollMenu = ({data = [], renderItem}) => {
+
+    const trackRef = useRef(null)
+
+    const [scrollLeft, setScrollLeft] = useState(0);
+    const [maxScroll, setMaxScroll] = useState(1)
+
+    const onScroll = (e) => {
+        setScrollLeft(e.target.scrollLeft)
+    }
+    useEffect(() => {
+        if (trackRef.current) {
+            setScrollLeft(trackRef.current.scrollLeft)
+            setMaxScroll(trackRef.current.scrollWidth - trackRef.current.clientWidth)
+
+        }
+    }, [data])
+
+    const start = scrollLeft > 0
+    const end = scrollLeft >= maxScroll
+
+    const onClickLeft = (e) => {
+        trackRef.current.scrollLeft = Math.max(0, trackRef.current.scrollLeft - 300)
+    }
+
+    const onClickRight = (e) => {
+        trackRef.current.scrollLeft = Math.min(maxScroll, trackRef.current.scrollLeft + 300)
+
+    }
+
     return (
-        <Container>
-            <Button className={'left'}>
-                <IconArrowLeft/>
-            </Button>
-            <Track className={"Track"}>
+        <Container className={cn({start, end})}>
+            {
+                start &&
+                <Button className={'left'} onClick={onClickLeft}>
+                    <IconArrowLeft/>
+                </Button>
+            }
+            <Track className={"Track"} onScroll={onScroll} ref={trackRef}>
                 {
                     data.map((item, index) => renderItem(item))
                 }
             </Track>
-            <Button className={'right'}>
-                <IconArrowRight/>
-            </Button>
+            {
+                !end &&
+                <Button className={'right'} onClick={onClickRight}>
+                    <IconArrowRight/>
+                </Button>
+            }
+
         </Container>
     )
 }
@@ -40,11 +78,22 @@ const Container = styled.div`
   &::before {
     left: 0;
     background: linear-gradient(270deg, hsla(0, 0%, 100%, 0) 0, #fff 90%, #fff);
+    opacity: 0;
+    transition: 0.2s;
+  }
+
+  &.start::before {
+    opacity: 1;
   }
 
   &::after {
     right: 0;
     background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, #fff 90%, #fff);
+    transition: 0.2s;
+  }
+
+  &.end::after {
+    opacity: 0;
   }
 `;
 
@@ -52,6 +101,7 @@ const Container = styled.div`
 const Track = styled.div`
   display: flex;
   overflow-x: auto;
+  scroll-behavior: smooth;
 `;
 
 const Button = styled.div`
