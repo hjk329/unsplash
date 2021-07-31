@@ -41,7 +41,7 @@ const SearchBox = ({shape}) => {
 
 const Container = styled.div`
   flex: 1;
-  height: 38px;
+
 `;
 
 const Form = styled.form`
@@ -49,12 +49,18 @@ const Form = styled.form`
   height: 100%;
   width: 100%;
 
+
   .round & {
+    background: #eee;
+    border-radius: 19px;
+    height: 38px;
 
   }
 
   .square & {
-
+    background: #fff;
+    border-radius: 4px;
+    height: 54px;
   }
 `;
 
@@ -63,15 +69,7 @@ const Label = styled.label`
   width: 100%;
   padding-left: 10px;
 
-  .round & {
-    background: #eee;
-    border-radius: 19px;
-  }
 
-  .square & {
-    background: #fff;
-    border-radius: 4px;
-  }
 `;
 
 const Input = styled.input`
@@ -99,7 +97,6 @@ const StyledButton = styled(Button)`
     }
 
   }
-
-
+  
 `;
 export default SearchBox;
