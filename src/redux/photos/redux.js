@@ -1,6 +1,10 @@
 const initialState = {
     list : [],
-    photoById : {},
+    photoById : {
+        related_collections : {
+            results : []
+        }
+    },
     related : []
 }
 

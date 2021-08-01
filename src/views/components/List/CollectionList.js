@@ -16,6 +16,6 @@ const CollectionList = ({data}) => {
 }
 
 const Container = styled.div`
-
+ display: flex;
 `;
 export default CollectionList;

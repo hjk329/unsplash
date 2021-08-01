@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import PhotoItem from "../Item/PhotoItem";
 
 
-const GridList = ({data = []}) => {
+const GridList = ({data = [], renderItem}) => {
     return (
         <Container>
             <Row>
                 {
                     data.map((item, index) => (
                         <Col key={index}>
-                            <PhotoItem data={item}/>
+                            {renderItem(item)}
                         </Col>
                     ))
                 }
