@@ -31,8 +31,8 @@ const Thumb = styled.div`
 
 const Desc = styled.div`
   display: flex;
-  align-items: center;
-  padding: 10px;
+  align-items: flex-end;
+  padding: 20px;
   position: absolute;
   top: 0;
   left: 0;
