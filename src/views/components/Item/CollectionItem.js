@@ -1,35 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Tags from "../Tags";
+
 const CollectionItem = ({item}) => {
 
     return (
         <Container>
-            <Grid>
-                <div className={"first"}>
-                    <img src={item.preview_photos?.[0]?.urls.regular} alt=""/>
-                </div>
-                <div className="second">
-                    <img src={item.preview_photos?.[1]?.urls.regular} alt=""/>
-                </div>
-                <div className="third">
-                    <img src={item.preview_photos?.[2]?.urls.regular} alt=""/>
-                </div>
-            </Grid>
-
-
+            <Thumb>
+                <ThumbContent>
+                    <ThumbLeft>
+                        <Photo>
+                            <img src={item?.preview_photos?.[0]?.urls.regular} alt=""/>
+                        </Photo>
+                    </ThumbLeft>
+                    <ThumbRight>
+                        <PhotoTop>
+                            <Photo>
+                                <img src={item?.preview_photos?.[1]?.urls.regular} alt=""/>
+                            </Photo>
+                        </PhotoTop>
+                        <PhotoBottom>
+                            <Photo>
+                                <img src={item?.preview_photos?.[2]?.urls.regular} alt=""/>
+                            </Photo>
+                        </PhotoBottom>
+                    </ThumbRight>
+                </ThumbContent>
+            </Thumb>
             <Desc>
-                <p className={"title"}>{item.title}</p>
-                <p className="editor">
-                    {item.total_photos} photos Curated by {item.user.name}
-                </p>
-                <div className="tag">
-                    <div className="tag-item">{item.tags?.[0]?.title}</div>
-                    <div className="tag-item">{item.tags?.[1]?.title}</div>
-                    <div className="tag-item">{item.tags?.[2]?.title}</div>
-                </div>
-            </Desc>
 
+            </Desc>
+            <Tags/>
         </Container>
     )
 }
@@ -38,57 +40,82 @@ const Container = styled.div`
 
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 5px;
-  
-  
-  & > .first {
-    grid-column: span 2;
-    grid-row: span 2;
+const Thumb = styled.div`
+  position: relative;
+  padding-top: 70%;
+  border-radius: 6px;
+  overflow: hidden;
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
   }
   
-  
+  &::after {
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    transition: 0.2s;
+    pointer-events: none;
+  }
+
+`;
+
+const ThumbContent = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+`;
+
+const ThumbLeft = styled.div`
+  width: 70%;
+  height: 100%;
+  flex-shrink: 0;
+  padding-right: 2px;
+`;
+
+const ThumbRight = styled.div`
+  flex: 1;
+`;
+
+const PhotoTop = styled.div`
+  height: 50%;
+  padding-bottom: 1px;
+`;
+
+const PhotoBottom = styled.div`
+  height: 50%;
+  padding-top: 1px;
+`;
+
+const Photo = styled.div`
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  background: #eee;
+
 `;
 
 const Desc = styled.div`
-  text-transform: capitalize;
-  margin-bottom: 10px;
-  
-  > .title {
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    margin: 10px 0;
-    
-  }
-  
-  > .editor {
-    color: #767676;
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 13px;
-  }
-  
-  > .tag{
-    display: flex;
-    
-    > .tag-item {
-      cursor: pointer;
-      color: #767676;
-      border-radius: 2px;
-      background: #eee;
-      margin: 5px;
-      padding: 8px;
-      
-      &:hover{
-        background: #e1e1e1;
-        color: #111;
-      }
-      
-    }
-  }
+
 `;
+
+
 export default CollectionItem;

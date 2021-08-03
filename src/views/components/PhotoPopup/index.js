@@ -55,6 +55,7 @@ const Screen = styled.div`
   right: 0;
   z-index: -1;
   background: rgba(0, 0, 0, 0.7);
+  cursor: zoom-out;
 `;
 
 const Track = styled.div`
@@ -67,6 +68,7 @@ const Track = styled.div`
 
 const Content = styled.div`
   background: #fff;
+  padding: 0 15px;
 `;
 
 const Button = styled.div`
@@ -78,6 +80,7 @@ const Button = styled.div`
   fill: #fff;
 
   svg {
+    fill: #fff;
     width: 24px;
     height: 24px;
   }

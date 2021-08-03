@@ -30,7 +30,7 @@ const Row = styled.div`
 
 const Col = styled.div`
   width: 33.3333%;
-  padding: 10px;
+  padding: 10px;    
 `;
 
 export default GridList;
