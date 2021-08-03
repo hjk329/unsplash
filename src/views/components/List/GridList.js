@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import PhotoItem from "../Item/PhotoItem";
-
 
 const GridList = ({data = [], renderItem}) => {
     return (

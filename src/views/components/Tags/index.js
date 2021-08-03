@@ -20,15 +20,18 @@ const Container = styled.div`
 `;
 
 const Tag = styled(Link)`
+  height: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
-  margin: 10px;
-  padding: 10px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 0 10px;
   background: #eee;
   border-radius: 2px;
   color: #767676;
+  font-size: 14px;
   cursor: pointer;
   text-transform: capitalize;
   transition: 0.2s;

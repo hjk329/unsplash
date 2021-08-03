@@ -5,33 +5,42 @@ import Tags from "../Tags";
 
 const CollectionItem = ({item}) => {
 
+    const {
+        title,
+        total_photos,
+        user,
+        preview_photos,
+        tags
+    } = item;
+
     return (
         <Container>
             <Thumb>
                 <ThumbContent>
                     <ThumbLeft>
                         <Photo>
-                            <img src={item?.preview_photos?.[0]?.urls.regular} alt=""/>
+                            <img src={preview_photos?.[0]?.urls.regular} alt=""/>
                         </Photo>
                     </ThumbLeft>
                     <ThumbRight>
                         <PhotoTop>
                             <Photo>
-                                <img src={item?.preview_photos?.[1]?.urls.regular} alt=""/>
+                                <img src={preview_photos?.[1]?.urls.regular} alt=""/>
                             </Photo>
                         </PhotoTop>
                         <PhotoBottom>
                             <Photo>
-                                <img src={item?.preview_photos?.[2]?.urls.regular} alt=""/>
+                                <img src={preview_photos?.[2]?.urls.regular} alt=""/>
                             </Photo>
                         </PhotoBottom>
                     </ThumbRight>
                 </ThumbContent>
             </Thumb>
             <Desc>
-
+                <h3>{title}</h3>
+                <p>{total_photos} · Curated by {user.name}</p>
             </Desc>
-            <Tags/>
+            <Tags tags={tags}/>
         </Container>
     )
 }
@@ -114,7 +123,21 @@ const Photo = styled.div`
 `;
 
 const Desc = styled.div`
-
+  padding: 15px 10px;
+  text-transform: capitalize;
+  h3 {
+    font-size: 18px;
+    color: #111;
+    font-weight: bold;
+    background: 3px;
+  }
+  p{
+    font-size: 14px;
+    color: #767676;
+    line-height: 1.5;
+  }
+  
+  
 `;
 
 
