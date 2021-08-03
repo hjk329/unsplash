@@ -59,7 +59,7 @@ const Screen = styled.div`
 `;
 
 const Track = styled.div`
-  padding-top: 50px;
+  padding: 50px 0 120px;
   width: 86vw;
   height: 100%;
   overflow-y: auto;
@@ -68,7 +68,7 @@ const Track = styled.div`
 
 const Content = styled.div`
   background: #fff;
-  padding: 0 15px;
+  padding-bottom: 80px;
 `;
 
 const Button = styled.div`

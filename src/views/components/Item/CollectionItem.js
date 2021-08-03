@@ -38,7 +38,7 @@ const CollectionItem = ({item}) => {
             </Thumb>
             <Desc>
                 <h3>{title}</h3>
-                <p>{total_photos} · Curated by {user.name}</p>
+                <p>{total_photos} photos · Curated by {user.name}</p>
             </Desc>
             <Tags tags={tags}/>
         </Container>

@@ -1,40 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import IconButton from "../../Button/IconButton";
-import {IconHeart, IconPlus} from "../../../../icons";
-
-
-const ActionButtons = () => {
+const ActionButtons = ({children}) => {
     return (
         <Container>
-            <IconButton icon={<IconHeart/>}/>
-            <IconButton icon={<IconPlus/>}/>
+            {children}
         </Container>
     )
 }
 
 const Container = styled.div`
   display: flex;
-  align-items: center;
-  border: 1px solid #aaa;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.9);
-  height: 32px;
-  padding: 0 11px;
-  cursor: pointer;
 
-  &:hover {
-    border-color: #111;
-
-    svg {
-      fill: #111
+  > * {
+    &:first-child {
+      margin-left: 0;
     }
-  }
 
-  svg {
-    width: 15px;
-    height: 15px;
+    margin-left: 8px;
   }
 `;
 export default ActionButtons;

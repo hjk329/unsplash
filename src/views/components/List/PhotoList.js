@@ -52,11 +52,11 @@ const Row = styled.div`
 
 const Col = styled.div`
   width: 33.3333%;
-  padding: 10px;
+  padding: 0 10px;
 `;
 
 const ItemWrapper = styled.div`
-    padding: 10px 0;
+    margin-bottom: 20px;
 `;
 
 export default PhotoList;

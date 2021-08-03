@@ -70,6 +70,20 @@ export const IconClose = () => (
     </svg>
 )
 
+export const IconZoomIn = () => (
+    <svg width="32" height="32" className="_1NYtf" viewBox="0 0 32 32" version="1.1" aria-hidden="false">
+        <path
+            d="M14.5 19.3l-6 6h4.8V28H4v-9.3h2.7v4.8l6-6 1.8 1.8zM18.7 4v2.7h4.8l-6 6 1.9 1.9 6-6v4.8H28V4h-9.3z"/>
+    </svg>
+)
+
+export const IconZoomOut = () => (
+    <svg width="32" height="32" className="_1NYtf" viewBox="0 0 32 32" version="1.1" aria-hidden="false">
+        <path
+            d="M22 12h4.8v2.7h-9.5V5.2H20V10l6.1-6L28 5.9 22 12zM5.2 20H10l-6 6.1L5.9 28l6.1-6v4.8h2.7v-9.5H5.2V20z"/>
+    </svg>
+)
+
 export const IconHeart = () => (
     <svg width="32" height="32" className="BWSrD" viewBox="0 0 32 32" version="1.1" aria-hidden="false">
         <path
@@ -80,5 +94,18 @@ export const IconHeart = () => (
 export const IconPlus = () => (
     <svg width="32" height="32" className="_2rdbO" viewBox="0 0 32 32" version="1.1" aria-hidden="false">
         <path d="M14 3h4v26h-4zM29 14v4h-26v-4z"/>
+    </svg>
+)
+
+export const IconShare = () => (
+    <svg width="32" height="32" className="_1xhtJ" viewBox="0 0 32 32" version="1.1" aria-hidden="false">
+        <path d="M16 26v-7C7.1 19 1.6 27.7 0 31 0 20 3.6 8.8 16 7V0l16 13.3L16 26z"/>
+    </svg>
+)
+
+export const IconInfo = () => (
+    <svg width="32" height="32" className="_1rYbs" viewBox="0 0 32 32" version="1.1" aria-hidden="false">
+        <path
+            d="M16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm2 25c0 .6-.4 1-1 1h-2c-.6 0-1-.4-1-1v-12c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v12zm0-16c0 .6-.4 1-1 1h-2c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v2z"/>
     </svg>
 )
