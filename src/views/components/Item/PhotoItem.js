@@ -7,7 +7,7 @@ import {IconDownload, IconHeart, IconPlus} from "../../../icons";
 import AvatarInfo from "../AvatarInfo";
 
 
-const PhotoItem = ({data = [], onClickItem}) => {
+const PhotoItem = ({data, onClickItem}) => {
     return (
         <Container onClick={() => onClickItem(data.id)}>
             <Thumb>

@@ -5,6 +5,7 @@ import TopicLnb from "../components/Header/lnb/TopicLnb";
 import Gnb from "../components/Header/Gnb";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/topics/redux";
+import {Route} from "react-router-dom";
 
 const HeaderContainer = () => {
 
@@ -25,7 +26,9 @@ const HeaderContainer = () => {
 return (
     <Container>
         <Gnb/>
-        <TopicLnb topics={topics.list}/>
+        <Route exact path={['/', '/topics/:slug', 'topics']}>
+            <TopicLnb topics={topics.list}/>
+        </Route>
     </Container>
 )
 }
