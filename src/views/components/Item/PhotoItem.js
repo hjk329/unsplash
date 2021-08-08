@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import ActionButtons from "../Photos/PhotoDetail/ActionButtons";
 import IconButton from "../Button/IconButton";
-import {IconHeart, IconPlus} from "../../../icons";
+import {IconDownload, IconHeart, IconPlus} from "../../../icons";
 import AvatarInfo from "../AvatarInfo";
 
 
@@ -14,11 +14,11 @@ const PhotoItem = ({data = [], onClickItem}) => {
                 <img src={data.urls.regular} alt=""/>
             </Thumb>
             <Desc>
-                <DescHeader className={'right'}>
+                <DescHeader>
                     {
                         data.sponsorship &&
-                        <UserProfile>
-                            <h3>{data.user.name}</h3>
+                        <UserProfile className={'right'}>
+                            <h3>Sponsored</h3>
                         </UserProfile>
                     }
                     <ActionButtons>
@@ -31,11 +31,10 @@ const PhotoItem = ({data = [], onClickItem}) => {
                     <AvatarInfo
                         imageUrl={data.sponsorship ? data.sponsorship?.sponsor?.profile_image.medium : data.user.profile_image.medium}
                         name={data.sponsorship ? data.sponsorship?.sponsor?.name : data.user.name}
-                        description={data.sponsorship ? data.sponsorship?.sponsor?.tagline : data.user.for_hire ? 'available for hire' : ''}
+                        description={data.sponsorship ? data.sponsorship?.tagline : data.user.for_hire ? 'Available for hire' : ''}
                     />
                     <ActionButtons>
-                        <IconButton icon={<IconHeart/>}/>
-                        <IconButton icon={<IconPlus/>}/>
+                        <IconButton icon={<IconDownload/>}/>
                     </ActionButtons>
                 </DescFooter>
             </Desc>
@@ -86,26 +85,46 @@ const Desc = styled.div`
 
 const DescHeader = styled.div`
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-between;
-  &.right {
-    justify-content: flex-end;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
 
-  }
 `;
 
 const UserProfile = styled.div`
+  display: flex;
+  align-items: center;
+
+  h3 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20.25px;
+  }
+
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+
+
 
 `;
 
 const DescFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  padding: 20px;
 `;
 
 
