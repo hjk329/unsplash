@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Filter = () => {
+const UserItem = () => {
     return (
         <Container>
-            Filter
+            UserItem
         </Container>
     )
 }
@@ -13,4 +13,4 @@ const Filter = () => {
 const Container = styled.div`
 
 `;
-export default Filter;
+export default UserItem;

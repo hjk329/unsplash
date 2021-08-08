@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components'
 
-const GridList = ({data = [], renderItem}) => {
+const GridList = ({data = [], children}) => {
     return (
         <Container>
             <Row>
                 {
                     data.map((item, index) => (
                         <Col key={index}>
-                            {renderItem(item)}
+                            {children(item)}
                         </Col>
                     ))
                 }

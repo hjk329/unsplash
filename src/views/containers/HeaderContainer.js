@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
 
-import TopicLnb from "../components/Header/lnb/TopicLnb";
+import Index from "../components/lnb/TopicsLnb";
 import Gnb from "../components/Header/Gnb";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/topics/redux";
@@ -27,7 +27,7 @@ return (
     <Container>
         <Gnb/>
         <Route exact path={['/', '/topics/:slug', 'topics']}>
-            <TopicLnb topics={topics.list}/>
+            <Index topics={topics.list}/>
         </Route>
     </Container>
 )
