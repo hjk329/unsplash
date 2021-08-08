@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/search/redux";
 import {CLIENT_ID} from "../../constants/common";
 import PhotoList from "../components/List/PhotoList";
+import SearchLnb from "../components/Header/lnb/SearchLnb";
 
 
 const SearchContainer = ({match}) => {
@@ -28,13 +29,12 @@ const SearchContainer = ({match}) => {
 
     }
 
-
     return (
         <Container>
-            <SearchBox/>
-            <ScrollMenu/>
+            <SearchLnb/>
             <ContentContainer>
-                <PhotoList data={photos.results}/>
+                <PhotoList data={photos.results}>
+                </PhotoList>
             </ContentContainer>
         </Container>
     )

@@ -109,3 +109,9 @@ export const IconInfo = () => (
             d="M16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm2 25c0 .6-.4 1-1 1h-2c-.6 0-1-.4-1-1v-12c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v12zm0-16c0 .6-.4 1-1 1h-2c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v2z"/>
     </svg>
 )
+
+export const IconDownload = () => (
+    <svg width="32" height="32" className="Apljk" viewBox="0 0 32 32" version="1.1" aria-hidden="false">
+        <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"/>
+    </svg>
+)

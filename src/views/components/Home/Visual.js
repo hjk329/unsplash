@@ -25,30 +25,33 @@ const Visual = () => {
                         <a href="" className={'trend'}>love </a>
                     </p>
                 </div>
-
-                <Bottom>
-                    <div className="by">
+            </Content>
+            <Bottom>
+                <div className="by">
+                    <p>
                         <a href="">Photo of the Day</a> by
                         <a href=""> Fakurian Design</a>
-                    </div>
-                    <div className="logo">
-                        <img className="_11pPi _2OP8p"
-                             src="https://images.unsplash.com/file-1606177908946-d1eed1cbe4f5image"/>
-                        <div className=""><a href="">Create your website today.</a></div>
-                    </div>
-                </Bottom>
-            </Content>
+                    </p>
+                </div>
+                <div className="logo">
+                    <img className="_11pPi _2OP8p"
+                         src="https://images.unsplash.com/file-1606177908946-d1eed1cbe4f5image"/>
+                    <a href="">Create your website today.</a>
+                </div>
+            </Bottom>
         </Container>
     )
 }
 
 const Container = styled.div`
   height: 560px;
-  background:  url('https://images.unsplash.com/photo-1519682577862-22b62b24e493?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjk4fHxib29rfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60') 50% /cover no-repeat;  display: flex;
+  background: url("https://images.unsplash.com/photo-1626203662544-69e778ddc0ee?ixid=MnwxMjA3fDB8MHxwaG90by1vZi10aGUtZGF5fHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format%2Ccompress&amp;fit=crop&amp;w=1000&amp;h=1000") 50% /cover no-repeat;
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 48px;
-  
+  position: relative;
+
 `;
 
 const Content = styled.div`
@@ -97,15 +100,33 @@ const Content = styled.div`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  
-  a{
-    text-decoration: none;
-    color: hsla(0,0%,100%,.8);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px 20px;
+
+  > .logo, .by {
+    color: hsla(0, 0%, 100%, .55);
+    cursor: pointer;
     transition: 0.2s;
-    &:hover{
-      color: #fff;
+
+    &:hover {
+      a {
+        color: #fff;
+      }
+
+      img {
+        color: #fff;
+      }
     }
+
+    a {
+      text-decoration: none;
+      color: hsla(0, 0%, 100%, .8);
+    }
+
   }
+
 `;
 export default Visual;

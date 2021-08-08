@@ -19,11 +19,12 @@ const AvatarInfo = ({imageUrl, name, description}) => {
 }
 
 const Container = styled.div`
-
+  display: flex;
+  align-items: center;
 `;
 
 const Avatar = styled.div`
-  margin-right: 8px;
+  margin-right: 2px;
 
   img {
     width: 32px;
@@ -34,15 +35,16 @@ const Avatar = styled.div`
 `;
 
 const Info = styled.div`
-  h1 {
+  h3 {
     font-size: 15px;
-    color: #111;
+    color: #fff;
     font-weight: 500;
   }
 
   p {
+    margin-top: 3px;
     font-size: 11px;
-    color: #767676;
+    color: #fff;
     font-weight: 500;
   }
 `;
