@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import ScrollMenu from "../../ScrollMenu";
 
 
-const TopicLnb = ({topics=[]}) => {
+const TopicsLnb = ({topics=[]}) => {
 
     const renderItem = (item) => <NavItem to={`/topics/${item.slug}`}> {item.title} </NavItem>
 
@@ -44,4 +44,4 @@ const NavItem = styled(Link)`
 `;
 
 
-export default TopicLnb;
+export default TopicsLnb;

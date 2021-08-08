@@ -10,11 +10,11 @@ const RelatedCollectionsContainer = () => {
 
     const collections = useSelector(state => state.photos.photoById.related_collections?.results)
 
-    const renderItem = (item) => <CollectionItem item={item}/>
-
     return (
         <Container>
-            <GridList data={collections} renderItem={renderItem}/>
+            <GridList data={collections}>
+                {(item) => <CollectionItem item={item}/>}
+            </GridList>
         </Container>
     )
 }

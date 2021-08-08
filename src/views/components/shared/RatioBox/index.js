@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Filter = () => {
+const RatioBox = ({children}) => {
     return (
         <Container>
-            Filter
+            RatioBox
         </Container>
     )
 }
@@ -13,4 +13,4 @@ const Filter = () => {
 const Container = styled.div`
 
 `;
-export default Filter;
+export default RatioBox;

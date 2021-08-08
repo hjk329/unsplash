@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const IconButton = ({icon, text}) => {
+const IconButton = ({icon, text, size}) => {
     return (
-        <Container>
+        <Container siez={size}>
             {icon}
             {
                 text &&
@@ -39,6 +39,7 @@ const Container = styled.button`
   }
 
   svg {
+    
     width: 15px;
     height: 15px;
     fill: #767676;

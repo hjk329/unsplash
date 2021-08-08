@@ -21,7 +21,7 @@ const App = () => {
             <PhotoPopupContainer/>
             <Switch>
                 <Route exact path={'/'} component={Home}/>
-                <Route exact path={'/search/photos/:query'} component={Search}/>
+                <Route exact path={'/search/:category/:query'} component={Search}/>
                 <Route exact path={'/topics/:slug'} component={TopicBySlug}/>
                 <Route exact path={'/topics'} component={Topic}/>
 
