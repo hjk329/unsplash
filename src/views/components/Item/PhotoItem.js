@@ -11,7 +11,7 @@ const PhotoItem = ({data, onClickItem}) => {
     return (
         <Container onClick={() => onClickItem(data.id)}>
             <Thumb>
-                <img src={data.urls.regular} alt=""/>
+                <img src={data.urls?.regular} alt=""/>
             </Thumb>
             <Desc>
                 <DescHeader>
