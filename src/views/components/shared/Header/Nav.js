@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {IconDots} from "../../../icons";
+import {IconDots} from "../../../../icons";
 import {Link} from "react-router-dom";
 
 

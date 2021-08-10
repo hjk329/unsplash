@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Link, useParams} from "react-router-dom";
 import cn from 'classnames'
 
-import {IconCollections, IconPhotos, IconUsers} from "../../../../icons";
+import {IconCollections, IconPhotos, IconUsers} from "../../../../../icons";
 
 
 const Nav = () => {

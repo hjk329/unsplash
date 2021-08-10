@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import cn from 'classnames'
 
-import {IconArrowLeft, IconArrowRight} from "../../../icons";
+import {IconArrowLeft, IconArrowRight} from "../../../../icons";
 
 
 const ScrollMenu = ({data = [], renderItem}) => {

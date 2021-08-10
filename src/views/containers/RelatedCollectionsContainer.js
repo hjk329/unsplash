@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {useSelector} from "react-redux";
 
-import GridList from "../components/List/GridList";
-import CollectionItem from "../components/Item/CollectionItem";
+import GridList from "../components/shared/List/GridList";
+import CollectionItem from "../components/shared/Item/CollectionItem";
 
 
 const RelatedCollectionsContainer = () => {

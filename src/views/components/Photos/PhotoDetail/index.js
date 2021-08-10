@@ -5,7 +5,7 @@ import UserProfile from "./UserProfile";
 import ActionButtons from "./ActionButtons";
 import Image from "./Image";
 import PhotoInfo from "./PhotoInfo";
-import IconButton from "../../Button/IconButton";
+import IconButton from "../../shared/Button/IconButton";
 import {IconHeart, IconInfo, IconPlus, IconShare} from "../../../../icons";
 
 

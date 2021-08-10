@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import AvatarInfo from "../AvatarInfo";
 import IconButton from "../Button/IconButton";
-import ActionButtons from "../Photos/PhotoDetail/ActionButtons";
-import {IconAddUser} from "../../../icons";
+import ActionButtons from "../../Photos/PhotoDetail/ActionButtons";
+import {IconAddUser} from "../../../../icons";
 import GridList from "../List/GridList";
 import UserPhotoItem from "./UserPhotoItem";
 
@@ -20,30 +20,33 @@ const UserItem = ({item}) => {
 
     return (
         <Container>
-            <AvatarInfo
-                imageUrl={profile_image.large}
-                name={name}
-                description={username}
-                size={'large'}
-            />
-            <ActionButtons>
-                <IconButton icon={<IconAddUser/>}
-                            size={18}
+            <UserHeader>
+                <AvatarInfo
+                    imageUrl={profile_image.large}
+                    name={name}
+                    description={username}
+                    size={'large'}
                 />
-            </ActionButtons>
+                <ActionButtons>
+                    <IconButton icon={<IconAddUser/>}
+                                size={18}
+                    />
+                </ActionButtons>
+            </UserHeader>
+
             <PreviewPhotos>
                 <GridList data={photos}>
-                    {(item) => <UserPhotoItem/>}
+                    {(item) => <UserPhotoItem item={item}/>}
                 </GridList>
             </PreviewPhotos>
-
-            <UserHeader/>
         </Container>
     )
 }
 
 const Container = styled.div`
-
+  padding: 16px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
 `;
 
 const UserHeader = styled.div`

@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 
 const IconButton = ({icon, text, size}) => {
     return (
-        <Container siez={size}>
+        <Container size={size}>
             {icon}
             {
                 text &&
@@ -39,9 +39,11 @@ const Container = styled.button`
   }
 
   svg {
-    
-    width: 15px;
-    height: 15px;
+    ${(p) => css`
+      width: ${p.size ?? 15} px;
+      height: ${p.size ?? 15}px;
+    `}
+
     fill: #767676;
     transition: 0.2s;
   }

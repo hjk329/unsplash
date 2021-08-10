@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 
 import PhotoByIdContainer from "../../containers/PhotoByIdContainer";
 import PhotoRelatedContainer from "../../containers/PhotoRelatedContainer";
-import Tags from "../Tags";
+import Tags from "../shared/Tags";
 import PhotoSection from "../Photos/PhotoSection";
 import {IconClose} from "../../../icons";
 import RelatedCollectionsContainer from "../../containers/RelatedCollectionsContainer";

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components'
 
-import ActionButtons from "../Photos/PhotoDetail/ActionButtons";
+import ActionButtons from "../../Photos/PhotoDetail/ActionButtons";
 import IconButton from "../Button/IconButton";
-import {IconDownload, IconHeart, IconPlus} from "../../../icons";
+import {IconDownload, IconHeart, IconPlus} from "../../../../icons";
 import AvatarInfo from "../AvatarInfo";
 
 

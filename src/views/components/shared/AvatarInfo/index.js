@@ -25,7 +25,11 @@ const Container = styled.div`
 `;
 
 const Avatar = styled.div`
-  margin-right: 2px;
+  margin-right: 8px;
+
+  .large & {
+    margin-right: 18px;
+  }
 
   img {
     width: 32px;
@@ -43,9 +47,12 @@ const Info = styled.div`
     font-size: 15px;
     color: #fff;
     font-weight: 500;
+    margin-bottom: 2px;
     
     .large & {
       font-size: 18px;
+      color: #111;
+      margin-bottom: 8px;
     }
   }
 
@@ -57,6 +64,7 @@ const Info = styled.div`
 
     .large & {
       font-size: 15px;
+      color: #111;
     }
   }
 `;
