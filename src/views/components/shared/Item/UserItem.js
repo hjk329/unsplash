@@ -29,13 +29,12 @@ const UserItem = ({item}) => {
                 />
                 <ActionButtons>
                     <IconButton icon={<IconAddUser/>}
-                                size={18}
-                    />
+                                size={18}/>
                 </ActionButtons>
             </UserHeader>
-
             <PreviewPhotos>
-                <GridList data={photos}>
+                <GridList data={photos}
+                gutter={4}>
                     {(item) => <UserPhotoItem item={item}/>}
                 </GridList>
             </PreviewPhotos>
@@ -56,7 +55,7 @@ const UserHeader = styled.div`
 `;
 
 const PreviewPhotos = styled.div`
-    
+    margin-top: 16px;
 `;
 
 export default UserItem;
