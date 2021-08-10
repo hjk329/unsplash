@@ -34,7 +34,7 @@ const UserItem = ({item}) => {
                 </ActionButtons>
             </UserHeader>
             <PreviewPhotos>
-                <GridList data={photos}
+                <GridList data={photos.length > 0 ? photos : Array(3).fill(1)}
                           gutter={4}>
                     {(item) => <UserPhotoItem item={item}/>}
                 </GridList>

@@ -7,15 +7,13 @@ import ScrollMenu from "../../ScrollMenu";
 
 const TopicsLnb = ({topics=[]}) => {
 
-    const renderItem = (item) => <NavItem to={`/topics/${item.slug}`}> {item.title} </NavItem>
-
     return (
         <Container>
             <NavItem>Editorial</NavItem>
 
-            <ScrollMenu data={topics}
-                        renderItem={renderItem}
-            />
+            <ScrollMenu data={topics}>
+                {(item) => <NavItem to={`/topics/${item.slug}`}> {item.title} </NavItem>}
+            </ScrollMenu>
 
             <NavItem>View all</NavItem>
         </Container>
