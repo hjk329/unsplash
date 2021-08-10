@@ -5,8 +5,8 @@ import {useRouteMatch} from 'react-router-dom';
 
 import {Action} from "../../redux/topics/redux";
 import TopicDetail from "../components/Topics/TopicDetail";
-import {ContentContainer} from "../components/Layout/Layout.Styled";
-import PhotoList from "../components/List/PhotoList";
+import {ContentContainer} from "../components/shared/Layout/Layout.Styled";
+import PhotoList from "../components/shared/List/PhotoList";
 
 const TopicBySlugContainer = () => {
     const dispatch = useDispatch();

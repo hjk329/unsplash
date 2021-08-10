@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {useSelector} from "react-redux";
 
-import PhotoList from "../components/List/PhotoList";
+import PhotoList from "../components/shared/List/PhotoList";
 
 
 const PhotoRelatedContainer = () => {

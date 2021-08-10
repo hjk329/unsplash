@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import SearchBox from "../SearchBox";
 import Nav from "./Nav";
-import {IconLogo} from "../../../icons";
+import {IconLogo} from "../../../../icons";
 import {DefaultButton} from "../Button/Button.Styled";
 import {Link} from "react-router-dom";
 

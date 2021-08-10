@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import _ from 'lodash';
 
 import {IconContributions, IconCurator, IconStatus, IconTopContributors} from "../../../icons";
-import {Button} from "../Button/Button.Styled";
+import {Button} from "../shared/Button/Button.Styled";
 import {FormatThousandNum} from "../../../lib/common";
 
 

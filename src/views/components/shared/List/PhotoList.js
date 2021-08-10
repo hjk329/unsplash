@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import {useDispatch} from "react-redux";
 
 import PhotoItem from "../Item/PhotoItem";
-import {makePhotosGroup} from "../../../lib/common";
-import {Action} from "../../../redux/popup/redux";
+import {makePhotosGroup} from "../../../../lib/common";
+import {Action} from "../../../../redux/popup/redux";
 
 
 const PhotoList = ({data = []}) => {

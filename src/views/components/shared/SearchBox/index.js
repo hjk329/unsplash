@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
 import cn from 'classnames';
-import {IconSearch} from "../../../icons";
+import {IconSearch} from "../../../../icons";
 import {Button} from "../Button/Button.Styled";
 
 

@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components'
 
-import {ContentContainer} from "../components/Layout/Layout.Styled";
+import {ContentContainer} from "../components/shared/Layout/Layout.Styled";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/photos/redux";
-import PhotoList from "../components/List/PhotoList";
-import IosLoader from "../components/Loader/IosLoader";
+import PhotoList from "../components/shared/List/PhotoList";
+import IosLoader from "../components/shared/Loader/IosLoader";
 
 
 const PhotoListContainer = () => {
