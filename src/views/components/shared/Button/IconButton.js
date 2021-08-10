@@ -4,7 +4,7 @@ import styled, {css} from 'styled-components';
 
 const IconButton = ({icon, text, size}) => {
     return (
-        <Container size={size}>
+        <Container size={size} className={'IconButton'}>
             {icon}
             {
                 text &&
@@ -40,14 +40,14 @@ const Container = styled.button`
 
   svg {
     ${(p) => css`
-      width: ${p.size ?? 15} px;
+      width: ${p.size ?? 15}px;
       height: ${p.size ?? 15}px;
     `}
-
     fill: #767676;
     transition: 0.2s;
   }
 `;
+
 
 const Text = styled.span`
   text-transform: capitalize;
