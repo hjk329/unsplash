@@ -1,16 +1,17 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components'
+import {Route, Switch, useParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
 import {ContentContainer} from "../components/shared/Layout/Layout.Styled";
-import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/search/redux";
 import {CLIENT_ID} from "../../constants/common";
 import PhotoList from "../components/shared/List/PhotoList";
 import SearchLnb from "../components/shared/lnb/SearchLnb";
-import {Route, Switch, useParams} from "react-router-dom";
 import GridList from "../components/shared/List/GridList";
 import CollectionItem from "../components/shared/Item/CollectionItem";
 import UserItem from "../components/shared/Item/UserItem";
+import RelatedKeywords from "../components/Search/RelatedKeywords";
 
 
 const SearchContainer = ({match}) => {
@@ -27,7 +28,7 @@ const SearchContainer = ({match}) => {
 
     const searchPhotos = () => {
         dispatch(Action.Creators.searchPhotos({
-            client_id : CLIENT_ID,
+            client_id: CLIENT_ID,
             query
         }))
 
@@ -36,10 +37,11 @@ const SearchContainer = ({match}) => {
     return (
         <Container>
             <SearchLnb/>
-            <br/>
-            <br/>
-            <br/>
             <ContentContainer>
+                <SearchKeyword>
+                    <h1>{query}</h1>
+                </SearchKeyword>
+                <RelatedKeywords data={related_searches}/>
                 <Switch>
                     <Route exact path={'/search/photos/:query'}>
                         <PhotoList data={photos.results}/>
@@ -62,5 +64,14 @@ const SearchContainer = ({match}) => {
 
 const Container = styled.div`
 
+`;
+
+const SearchKeyword = styled.div`
+  margin-top: 60px;
+  font-size: 46px;
+  color: #111;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 16px;
 `;
 export default SearchContainer;

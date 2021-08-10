@@ -5,7 +5,7 @@ import cn from 'classnames'
 import {IconArrowLeft, IconArrowRight} from "../../../../icons";
 
 
-const ScrollMenu = ({data = [], renderItem}) => {
+const ScrollMenu = ({data = [], children}) => {
 
     const trackRef = useRef(null)
 
@@ -45,7 +45,7 @@ const ScrollMenu = ({data = [], renderItem}) => {
             }
             <Track className={"Track"} onScroll={onScroll} ref={trackRef}>
                 {
-                    data.map((item, index) => renderItem(item))
+                    data.map((item, index) => children(item))
                 }
             </Track>
             {
