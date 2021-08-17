@@ -17,6 +17,13 @@ const Filter = () => {
 
     return (
         <Container>
+
+            {
+                Object.keys(queryParams).length > 0 &&
+                <Clear to={`/search/photos/${query}`}>Clear</Clear>
+            }
+
+
             <FilterItem name={'Any orientation'}
                         dropmenu={[
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
@@ -64,7 +71,7 @@ const Filter = () => {
                         dropmenu={[
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
                                 ...queryParams,
-                                order_by : 'relevant'
+                                order_by: 'relevant'
                             })}`}>Relevance</DropMenuItem>,
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
                                 ...queryParams,
@@ -79,6 +86,17 @@ const Filter = () => {
 const Container = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const Clear = styled(Link)`
+  display: block;
+  line-height: 32px;
+  padding: 0 16px;
+  color: #767676;
+  font-size: 14px;
+  &:hover {
+    color: #111;
+  }
 `;
 
 const DropMenuItem = styled(Link)`
