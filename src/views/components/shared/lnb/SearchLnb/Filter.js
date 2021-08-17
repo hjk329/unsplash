@@ -2,6 +2,7 @@ import React from 'react';
 import styled, {css} from 'styled-components';
 import qs from 'qs';
 import _ from 'lodash';
+import cn from 'classnames';
 
 import FilterItem from "./FilterItem";
 import {Link, useLocation, useParams} from "react-router-dom";
@@ -28,29 +29,44 @@ const Filter = () => {
                         dropmenu={[
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
                                 ...(_.omit(queryParams, ['orientation'])),
-                            })}`}>Any orientation</DropMenuItem>,
+                            })}`}
+                                          className={cn({isActive: !queryParams?.orientation})}
+                            >Any orientation</DropMenuItem>,
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
                                 ...queryParams,
                                 orientation: 'landscape'
-                            })}`}>Landscape</DropMenuItem>,
+                            })}`}
+                                          className={cn({isActive: queryParams?.orientation === 'landscape'})}
+                            >Landscape</DropMenuItem>,
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
                                 ...queryParams,
                                 orientation: 'portrait'
-                            })}`}>Portrait</DropMenuItem>,
+                            })}`}
+                                          className={cn({isActive: queryParams?.orientation === 'portrait'})}
+
+                            >Portrait</DropMenuItem>,
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
                                 ...queryParams,
                                 orientation: 'squarish'
-                            })}`}>Square</DropMenuItem>
+                            })}`}
+                                          className={cn({isActive: queryParams?.orientation === 'squarish'})}
+
+                            >Square</DropMenuItem>
                         ]}/>
             <FilterItem name={'Any color'}
                         dropmenu={[
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
                                 ...(_.omit(queryParams, ['color'])),
-                            })}`}>Any color</DropMenuItem>,
+                            })}`}
+                                          className={cn({isActive: !queryParams?.color})}
+
+                            >Any color</DropMenuItem>,
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
                                 ...queryParams,
                                 color: 'black_and_white'
-                            })}`}>Black and White</DropMenuItem>,
+                            })}`}
+                                          className={cn({isActive: queryParams?.color === 'black_and_white'})}
+                            >Black and White</DropMenuItem>,
                             <DropMenuItem disabled>
                                 Tones
                                 <ColorList>
@@ -72,11 +88,15 @@ const Filter = () => {
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
                                 ...queryParams,
                                 order_by: 'relevant'
-                            })}`}>Relevance</DropMenuItem>,
+                            })}`}
+                                          className={cn({isActive: queryParams?.order_by === 'relevant'})}
+                            >Relevance</DropMenuItem>,
                             <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
                                 ...queryParams,
                                 order_by: 'latest'
-                            })}`}>Newest</DropMenuItem>,
+                            })}`}
+                                          className={cn({isActive: queryParams?.order_by === 'latest'})}
+                            >Newest</DropMenuItem>,
                         ]}/>
 
         </Container>
@@ -94,6 +114,7 @@ const Clear = styled(Link)`
   padding: 0 16px;
   color: #767676;
   font-size: 14px;
+
   &:hover {
     color: #111;
   }
@@ -107,7 +128,9 @@ const DropMenuItem = styled(Link)`
   padding: 0 16px;
   transition: 0.3s;
 
-  &:hover {
+  &:hover,
+  &.isActive
+  {
     color: #111;
 
     ${p => !p.disabled & css`
