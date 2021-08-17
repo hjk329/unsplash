@@ -23,10 +23,17 @@ function* getPhotoById({payload}) {
  yield put(Action.Creators.setPhotoById(result.data))
 }
 
+function* getPhotoPage({payload}) {
+ yield put(Action.Creators.getPhotoById(payload))
+ yield put(Action.Creators.getPhotosRelated(payload))
+}
+
 function* saga() {
  yield takeLatest(Action.Types.GET_PHOTOS, getPhotos)
  yield takeLatest(Action.Types.GET_PHOTOS_RELATED, getPhotosRelated)
  yield takeLatest(Action.Types.GET_PHOTO_BY_ID, getPhotoById)
+ yield takeLatest(Action.Types.GET_PHOTO_PAGE, getPhotoPage)
+
 }
 
 export default saga;

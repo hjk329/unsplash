@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/photos/redux";
 import PhotoList from "../components/shared/List/PhotoList";
 import IosLoader from "../components/shared/Loader/IosLoader";
+import {useIntersection} from "../../hooks/useIntersection";
 
 
 const PhotoListContainer = () => {
@@ -16,34 +17,12 @@ const PhotoListContainer = () => {
 
     const [page, setPage] = useState(1)
 
-    const [inView, setInView] = useState(false)
-
-    const sentinelRef = useRef(null);
-
+    const [inView, sentinelRef] = useIntersection()
+    
 
     useEffect(() => {
         getPhotos();
     }, [page])
-
-    useEffect(() => {
-
-        let callback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (sentinelRef.current) {
-                    setInView(entry.isIntersecting)
-                }
-            });
-        };
-
-        let observer = new IntersectionObserver(callback, {});
-        observer.observe(sentinelRef.current);
-        return () => {
-            if (sentinelRef.current) {
-                observer.unobserve(sentinelRef.current);
-            }
-        }
-
-    }, [])
 
 
     useEffect(() => {

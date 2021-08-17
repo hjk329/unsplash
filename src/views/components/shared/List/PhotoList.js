@@ -15,6 +15,7 @@ const PhotoList = ({data = []}) => {
     const dispatch = useDispatch();
 
     const onClickItem = (id) => {
+        window.history.pushState({}, null, `/photos/${id}`)
         dispatch(Action.Creators.showPopup(id))
     }
 
