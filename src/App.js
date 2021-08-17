@@ -10,6 +10,7 @@ import HeaderContainer from "./views/containers/HeaderContainer";
 import TopicBySlug from "./views/pages/TopicBySlug";
 import Topic from "./views/pages/Topic";
 import PhotoPopupContainer from "./views/containers/PhotoPopupContainer";
+import Photo from "./views/pages/Photo";
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
                 <Route exact path={'/search/:category/:query'} component={Search}/>
                 <Route exact path={'/topics/:slug'} component={TopicBySlug}/>
                 <Route exact path={'/topics'} component={Topic}/>
+                <Route exact path={'/photos/:id'} component={Photo}/>
 
             </Switch>
         </Container>

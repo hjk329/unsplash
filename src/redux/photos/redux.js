@@ -17,7 +17,9 @@ export const Action = {
         SET_PHOTOS_RELATED : 'SET_PHOTOS_RELATED',
 
         GET_PHOTO_BY_ID : 'GET_PHOTO_BY_ID',
-        SET_PHOTO_BY_ID : 'SET_PHOTO_BY_ID'
+        SET_PHOTO_BY_ID : 'SET_PHOTO_BY_ID',
+
+        GET_PHOTO_PAGE : 'GET_PHOTO_PAGE'
     },
     Creators : {
         getPhotos : (payload) => {
@@ -55,7 +57,11 @@ export const Action = {
                 type : Action.Types.SET_PHOTO_BY_ID,
                 data
             }
-        }
+        },
+        getPhotoPage : (payload) => ({
+            type : Action.Types.GET_PHOTO_PAGE,
+            payload
+        })
     }
 }
 
