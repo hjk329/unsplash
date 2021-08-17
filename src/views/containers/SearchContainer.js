@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components'
-import {Route, Switch, useParams} from "react-router-dom";
+import {Route, Switch, useLocation, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import qs from 'qs';
 
 import {ContentContainer} from "../components/shared/Layout/Layout.Styled";
 import {Action} from "../../redux/search/redux";
@@ -20,16 +21,21 @@ const SearchContainer = ({match}) => {
     const {photos, collections, users, related_searches} = useSelector(state => state.search)
     // const query = match.params.query;
 
-    const {query} = useParams()
+    const {query} = useParams();
+    const location = useLocation()
+    const {orientation,color, order_by} = qs.parse(location.search, {ignoreQueryPrefix : true})
 
     useEffect(() => {
         searchPhotos();
-    }, [query])
+    }, [query, orientation, color, order_by])
 
     const searchPhotos = () => {
         dispatch(Action.Creators.searchPhotos({
             client_id: CLIENT_ID,
-            query
+            query,
+            orientation,
+            color,
+            order_by
         }))
 
     }
