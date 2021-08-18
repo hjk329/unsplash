@@ -1,29 +1,13 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-import DropBox from "../../DropBox";
-import Contain from "../../Contain";
-
-
-const FilterItem = ({name, dropmenu}) => {
+const FilterItem = ({children}) => {
 
     const [open, setOpen] = useState(false);
 
     return (
         <Container>
-            <Name onClick={() => setOpen(v=>!v)}>
-                {name}
-                <CaretDown/>
-            </Name>
-            {
-                open &&
-                    <Contain checkContain={() => setOpen(false)}>
-                        <DropBox menu={dropmenu}
-                        />
-                    </Contain>
-
-
-            }
+            {children}
         </Container>
     )
 }

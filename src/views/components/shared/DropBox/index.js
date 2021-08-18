@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const DropBox = ({menu = [], onClose}) => {
+const DropBox = ({menu = []}) => {
 
     return (
         <Container>
