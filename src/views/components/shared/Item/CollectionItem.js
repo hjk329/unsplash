@@ -1,48 +1,53 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Tags from "../Tags";
+import Tags from '../Tags';
 
-const CollectionItem = ({item}) => {
+const CollectionItem = ({ item }) => {
+  const {
+    title,
+    total_photos,
+    user,
+    preview_photos,
+    tags,
+  } = item;
 
-    const {
-        title,
-        total_photos,
-        user,
-        preview_photos,
-        tags
-    } = item;
-
-    return (
-        <Container>
-            <Thumb>
-                <ThumbContent>
-                    <ThumbLeft>
-                        <Photo>
-                            <img src={preview_photos?.[0]?.urls.regular} alt=""/>
-                        </Photo>
-                    </ThumbLeft>
-                    <ThumbRight>
-                        <PhotoTop>
-                            <Photo>
-                                <img src={preview_photos?.[1]?.urls.regular} alt=""/>
-                            </Photo>
-                        </PhotoTop>
-                        <PhotoBottom>
-                            <Photo>
-                                <img src={preview_photos?.[2]?.urls.regular} alt=""/>
-                            </Photo>
-                        </PhotoBottom>
-                    </ThumbRight>
-                </ThumbContent>
-            </Thumb>
-            <Desc>
-                <h3>{title}</h3>
-                <p>{total_photos} photos · Curated by {user.name}</p>
-            </Desc>
-            <Tags tags={tags}/>
-        </Container>
-    )
+  return (
+    <Container>
+      <Thumb>
+        <ThumbContent>
+          <ThumbLeft>
+            <Photo>
+              <img src={preview_photos?.[0]?.urls.regular} alt="" />
+            </Photo>
+          </ThumbLeft>
+          <ThumbRight>
+            <PhotoTop>
+              <Photo>
+                <img src={preview_photos?.[1]?.urls.regular} alt="" />
+              </Photo>
+            </PhotoTop>
+            <PhotoBottom>
+              <Photo>
+                <img src={preview_photos?.[2]?.urls.regular} alt="" />
+              </Photo>
+            </PhotoBottom>
+          </ThumbRight>
+        </ThumbContent>
+      </Thumb>
+      <Desc>
+        <h3>{title}</h3>
+        <p>
+          {total_photos}
+          {' '}
+          photos · Curated by
+          {' '}
+          {user.name}
+        </p>
+      </Desc>
+      <Tags tags={tags} />
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -139,6 +144,5 @@ const Desc = styled.div`
   
   
 `;
-
 
 export default CollectionItem;

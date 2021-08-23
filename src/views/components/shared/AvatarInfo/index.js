@@ -1,23 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import cn from 'classnames'
+import cn from 'classnames';
 
-
-const AvatarInfo = ({imageUrl, name, description, size}) => {
-    return (
-        <Container className={cn(size)}>
-            <Avatar>
-                <img src={imageUrl} alt=""/>
-            </Avatar>
-            <Info>
-                <h3>{name}</h3>
-                {
-                    description && <p>{description}</p>
-                }
-            </Info>
-        </Container>
-    )
-}
+const AvatarInfo = ({
+  imageUrl, name, description, size,
+}) => (
+  <Container className={cn(size)}>
+    <Avatar>
+      <img src={imageUrl} alt="" />
+    </Avatar>
+    <Info>
+      <h3>{name}</h3>
+      {
+        description && <p>{description}</p>
+      }
+    </Info>
+  </Container>
+)
 
 const Container = styled.div`
   display: flex;

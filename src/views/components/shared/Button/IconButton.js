@@ -1,18 +1,15 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
-
-const IconButton = ({icon, text, size}) => {
-    return (
-        <Container size={size} className={'IconButton'}>
-            {icon}
-            {
-                text &&
-                <Text>{text}</Text>
-            }
-        </Container>
-    )
-}
+const IconButton = ({ icon, text, size }) => (
+  <Container size={size} className="IconButton">
+    {icon}
+    {
+      text
+                && <Text>{text}</Text>
+    }
+  </Container>
+)
 
 const Container = styled.button`
   display: flex;
@@ -47,7 +44,6 @@ const Container = styled.button`
     transition: 0.2s;
   }
 `;
-
 
 const Text = styled.span`
   text-transform: capitalize;

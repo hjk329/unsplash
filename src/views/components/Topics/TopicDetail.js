@@ -2,79 +2,76 @@ import React from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
 
-import {IconContributions, IconCurator, IconStatus, IconTopContributors} from "../../../icons";
-import {Button} from "../shared/Button/Button.Styled";
-import {FormatThousandNum} from "../../../lib/common";
+import {
+  IconContributions, IconCurator, IconStatus, IconTopContributors,
+} from '../../../icons';
+import { Button } from '../shared/Button/Button.Styled';
+import { FormatThousandNum } from '../../../lib/common';
 
+const TopicDetail = ({ data = [] }) => {
+  if (_.isEmpty(data)) return null;
 
-const TopicDetail = ({data = []}) => {
+  const renderAvatar = (items = [], size) => items.map((item) => (
+    <Avatar className={size}>
+      <img src={item.profile_image.small} alt="" />
+    </Avatar>
+  ))
 
-    if (_.isEmpty(data)) return null;
+  const detailItem = [
+    {
+      icon: <IconStatus />,
+      label: 'Status',
+      content: <StatusLabel className={data.status}>{data.status}</StatusLabel>,
+    },
+    {
+      icon: <IconCurator />,
+      label: 'Curator',
+      content: renderAvatar(data.owners, 'md'),
+    },
+    {
+      icon: <IconContributions />,
+      label: 'Contributions',
+      content: FormatThousandNum(data.total_photos),
+    },
+    {
+      icon: <IconTopContributors />,
+      label: 'Top contributors',
+      content: renderAvatar(data.top_contributors, 'sm'),
+    },
 
-    const renderAvatar = (items = [], size) => {
-        return items.map((item) => (
-            <Avatar className={size}>
-                <img src={item.profile_image.small} alt=""/>
-            </Avatar>
-        ))
-    }
+  ]
 
-    const detailItem = [
-        {
-            icon: <IconStatus/>,
-            label: 'Status',
-            content: <StatusLabel className={data.status}>{data.status}</StatusLabel>
-        },
-        {
-            icon: <IconCurator/>,
-            label: 'Curator',
-            content: renderAvatar(data.owners, 'md')
-        }
-        ,
-        {
-            icon: <IconContributions/>,
-            label: 'Contributions',
-            content: FormatThousandNum(data.total_photos)
-        },
-        {
-            icon: <IconTopContributors/>,
-            label: 'Top contributors',
-            content: renderAvatar(data.top_contributors, 'sm')
-        },
+  return (
+    <Container>
+      <Text>
+        <h1>{data?.title}</h1>
+        <p dangerouslySetInnerHTML={{ __html: data?.description }} />
+      </Text>
 
-    ]
+      <DetailBox>
+        <Detail>
+          {
+            detailItem.map((item) => (
+              <DetailItem>
+                <div className="icon">{item.icon}</div>
+                <div className="label">{item.label}</div>
+                <div className="content">
+                  {item.content}
+                </div>
+              </DetailItem>
+            ))
+          }
 
-    return (
-        <Container>
-            <Text>
-                <h1>{data?.title}</h1>
-                <p dangerouslySetInnerHTML={{__html: data?.description}}/>
-            </Text>
+        </Detail>
+        <StyledButton>
+          Submit to
+          {' '}
+          {data.title}
+        </StyledButton>
+      </DetailBox>
 
-            <DetailBox>
-                <Detail>
-                    {
-                        detailItem.map((item) => (
-                            <DetailItem>
-                                <div className="icon">{item.icon}</div>
-                                <div className="label">{item.label}</div>
-                                <div className="content">
-                                    {item.content}
-                                </div>
-                            </DetailItem>
-                        ))
-                    }
-
-
-                </Detail>
-                <StyledButton>
-                    Submit to {data.title}
-                </StyledButton>
-            </DetailBox>
-
-
-        </Container>
-    )
+    </Container>
+  )
 }
 
 const Container = styled.div`

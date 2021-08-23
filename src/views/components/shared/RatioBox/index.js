@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const RatioBox = ({children, width, height, contain}) => {
-    return (
-        <Container style={{paddingTop: `${height / width * 100}%`}}>
-            <Inner>
-                {children}
-            </Inner>
-        </Container>
-    )
-}
+const RatioBox = ({
+  children, width, height, contain,
+}) => (
+  <Container style={{ paddingTop: `${height / width * 100}%` }}>
+    <Inner>
+      {children}
+    </Inner>
+  </Container>
+)
 
 const Container = styled.div`
   position: relative;
@@ -29,7 +28,7 @@ const Inner = styled.div`
   iframe {
     width: 100%;
     height: 100%;
-    object-fit: ${p => p.contain ? 'contain' : 'cover'};
+    object-fit: ${(p) => (p.contain ? 'contain' : 'cover')};
   }
 `;
 export default RatioBox;

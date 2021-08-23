@@ -1,47 +1,52 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import SearchBox from "../shared/SearchBox";
+import SearchBox from '../shared/SearchBox';
 
-
-const Visual = () => {
-    return (
-        <Container>
-            <Content>
-                <h1>Unsplash</h1>
-                <p>
-                    The internet’s source of <a href="#!">freely-usable images.</a>
-                </p>
-                <p>
-                    Powered by creators everywhere.
-                </p>
-                <SearchBox shape={'square'}/>
-                <div className="trend">
-                    <p>Trending :
-                        <a href="#!" className={'trend'}>flower, </a>
-                        <a href="#!" className={'trend'}>wallpapers, </a>
-                        <a href="#!" className={'trend'}>backgrounds, </a>
-                        <a href="#!" className={'trend'}>happy, </a>
-                        <a href="#!" className={'trend'}>love </a>
-                    </p>
-                </div>
-            </Content>
-            <Bottom>
-                <div className="by">
-                    <p>
-                        <a href="#!">Photo of the Day</a> by
-                        <a href="#!"> Fakurian Design</a>
-                    </p>
-                </div>
-                <div className="logo">
-                    <img className="_11pPi _2OP8p"
-                         src="https://images.unsplash.com/file-1606177908946-d1eed1cbe4f5image" alt=""/>
-                    <a href="#!">Create your website today.</a>
-                </div>
-            </Bottom>
-        </Container>
-    )
-}
+const Visual = () => (
+  <Container>
+    <Content>
+      <h1>Unsplash</h1>
+      <p>
+        The internet’s source of
+        {' '}
+        <a href="#!">freely-usable images.</a>
+      </p>
+      <p>
+        Powered by creators everywhere.
+      </p>
+      <SearchBox shape="square" />
+      <div className="trend">
+        <p>
+          Trending :
+          <a href="#!" className="trend">flower, </a>
+          <a href="#!" className="trend">wallpapers, </a>
+          <a href="#!" className="trend">backgrounds, </a>
+          <a href="#!" className="trend">happy, </a>
+          <a href="#!" className="trend">love </a>
+        </p>
+      </div>
+    </Content>
+    <Bottom>
+      <div className="by">
+        <p>
+          <a href="#!">Photo of the Day</a>
+          {' '}
+          by
+          <a href="#!"> Fakurian Design</a>
+        </p>
+      </div>
+      <div className="logo">
+        <img
+          className="_11pPi _2OP8p"
+          src="https://images.unsplash.com/file-1606177908946-d1eed1cbe4f5image"
+          alt=""
+        />
+        <a href="#!">Create your website today.</a>
+      </div>
+    </Bottom>
+  </Container>
+)
 
 const Container = styled.div`
   height: 560px;

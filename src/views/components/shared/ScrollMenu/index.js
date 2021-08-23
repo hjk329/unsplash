@@ -1,62 +1,62 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames'
 
-import {IconArrowLeft, IconArrowRight} from "../../../../icons";
+import { IconArrowLeft, IconArrowRight } from '../../../../icons';
 
+const ScrollMenu = ({ data = [], children }) => {
+  const trackRef = useRef(null)
 
-const ScrollMenu = ({data = [], children}) => {
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(1)
 
-    const trackRef = useRef(null)
-
-    const [scrollLeft, setScrollLeft] = useState(0);
-    const [maxScroll, setMaxScroll] = useState(1)
-
-    const onScroll = (e) => {
-        setScrollLeft(e.target.scrollLeft)
+  const onScroll = (e) => {
+    setScrollLeft(e.target.scrollLeft)
+  }
+  useEffect(() => {
+    if (trackRef.current) {
+      setScrollLeft(trackRef.current.scrollLeft)
+      setMaxScroll(trackRef.current.scrollWidth - trackRef.current.clientWidth)
     }
-    useEffect(() => {
-        if (trackRef.current) {
-            setScrollLeft(trackRef.current.scrollLeft)
-            setMaxScroll(trackRef.current.scrollWidth - trackRef.current.clientWidth)
+  }, [data])
 
+  const start = scrollLeft > 0
+  const end = scrollLeft >= maxScroll
+
+  const onClickLeft = (e) => {
+    trackRef.current.scrollLeft = Math.max(0, trackRef.current.scrollLeft - 300)
+  }
+
+  const onClickRight = (e) => {
+    trackRef.current.scrollLeft = Math.min(maxScroll, trackRef.current.scrollLeft + 300)
+  }
+
+  return (
+    <Container className={cn({ start, end })}>
+      {
+        start
+                && (
+                  <Button className="left" onClick={onClickLeft}>
+                    <IconArrowLeft />
+                  </Button>
+                )
+      }
+      <Track className="Track" onScroll={onScroll} ref={trackRef}>
+        {
+          data.map((item, index) => children(item))
         }
-    }, [data])
+      </Track>
+      {
+        !end
+                && (
+                  <Button className="right" onClick={onClickRight}>
+                    <IconArrowRight />
+                  </Button>
+                )
+      }
 
-    const start = scrollLeft > 0
-    const end = scrollLeft >= maxScroll
-
-    const onClickLeft = (e) => {
-        trackRef.current.scrollLeft = Math.max(0, trackRef.current.scrollLeft - 300)
-    }
-
-    const onClickRight = (e) => {
-        trackRef.current.scrollLeft = Math.min(maxScroll, trackRef.current.scrollLeft + 300)
-
-    }
-
-    return (
-        <Container className={cn({start, end})}>
-            {
-                start &&
-                <Button className={'left'} onClick={onClickLeft}>
-                    <IconArrowLeft/>
-                </Button>
-            }
-            <Track className={"Track"} onScroll={onScroll} ref={trackRef}>
-                {
-                    data.map((item, index) => children(item))
-                }
-            </Track>
-            {
-                !end &&
-                <Button className={'right'} onClick={onClickRight}>
-                    <IconArrowRight/>
-                </Button>
-            }
-
-        </Container>
-    )
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -96,7 +96,6 @@ const Container = styled.div`
     opacity: 0;
   }
 `;
-
 
 const Track = styled.div`
   display: flex;

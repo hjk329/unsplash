@@ -1,61 +1,70 @@
-import React, {useState} from 'react';
-import styled, {css} from 'styled-components';
-import qs from "qs";
-import _ from "lodash";
-import cn from "classnames";
-import {Link} from "react-router-dom";
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+import qs from 'qs';
+import _ from 'lodash';
+import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
-import Contain from "../../Contain";
-import DropBox from "../../DropBox";
+import Contain from '../../Contain';
+import DropBox from '../../DropBox';
 
+const OrientationItem = ({ query, queryParams }) => {
+  const [open, setOpen] = useState(false);
 
-const OrientationItem = ({query, queryParams}) => {
-
-    const [open, setOpen] = useState(false);
-
-    return (
-        <Container>
-            <Name onClick={() => setOpen(v => !v)}>
-                Any orientation
-                <CaretDown/>
-            </Name>
-            {
-                open &&
-                <Contain checkContain={() => setOpen(false)}>
+  return (
+    <Container>
+      <Name onClick={() => setOpen((v) => !v)}>
+        Any orientation
+        <CaretDown />
+      </Name>
+      {
+        open
+                && (
+                  <Contain checkContain={() => setOpen(false)}>
                     <DropBox menu={[
-                        <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
-                            ...(_.omit(queryParams, ['orientation'])),
+                      <DropMenuItem
+                        to={`/search/photos/${query}?${qs.stringify({
+                          ...(_.omit(queryParams, ['orientation'])),
                         })}`}
-                                      className={cn({isActive: !queryParams?.orientation})}
-                        >Any orientation</DropMenuItem>,
-                        <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
-                            ...queryParams,
-                            orientation: 'landscape'
+                        className={cn({ isActive: !queryParams?.orientation })}
+                      >
+                        Any orientation
+                      </DropMenuItem>,
+                      <DropMenuItem
+                        to={`/search/photos/${query}?${qs.stringify({
+                          ...queryParams,
+                          orientation: 'landscape',
                         })}`}
-                                      className={cn({isActive: queryParams?.orientation === 'landscape'})}
-                        >Landscape</DropMenuItem>,
-                        <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
-                            ...queryParams,
-                            orientation: 'portrait'
+                        className={cn({ isActive: queryParams?.orientation === 'landscape' })}
+                      >
+                        Landscape
+                      </DropMenuItem>,
+                      <DropMenuItem
+                        to={`/search/photos/${query}?${qs.stringify({
+                          ...queryParams,
+                          orientation: 'portrait',
                         })}`}
-                                      className={cn({isActive: queryParams?.orientation === 'portrait'})}
-
-                        >Portrait</DropMenuItem>,
-                        <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
-                            ...queryParams,
-                            orientation: 'squarish'
+                        className={cn({ isActive: queryParams?.orientation === 'portrait' })}
+                      >
+                        Portrait
+                      </DropMenuItem>,
+                      <DropMenuItem
+                        to={`/search/photos/${query}?${qs.stringify({
+                          ...queryParams,
+                          orientation: 'squarish',
                         })}`}
-                                      className={cn({isActive: queryParams?.orientation === 'squarish'})}
-
-                        >Square</DropMenuItem>
+                        className={cn({ isActive: queryParams?.orientation === 'squarish' })}
+                      >
+                        Square
+                      </DropMenuItem>,
                     ]}
                     />
-                </Contain>
+                  </Contain>
+                )
 
-
-            }
-        </Container>
-    )
+      }
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -98,7 +107,7 @@ const DropMenuItem = styled(Link)`
   &.isActive {
     color: #111;
 
-    ${p => !p.disabled & css`
+    ${(p) => !p.disabled & css`
       background: #f5f5f5;
     `}
   }

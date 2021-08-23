@@ -1,25 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import ScrollMenu from "../../ScrollMenu";
+import ScrollMenu from '../../ScrollMenu';
 
+const TopicsLnb = ({ topics = [] }) => (
+  <Container>
+    <NavItem>Editorial</NavItem>
 
-const TopicsLnb = ({topics=[]}) => {
+    <ScrollMenu data={topics}>
+      {(item) => (
+        <NavItem to={`/topics/${item.slug}`}>
+          {' '}
+          {item.title}
+          {' '}
+        </NavItem>
+      )}
+    </ScrollMenu>
 
-    return (
-        <Container>
-            <NavItem>Editorial</NavItem>
+    <NavItem>View all</NavItem>
+  </Container>
 
-            <ScrollMenu data={topics}>
-                {(item) => <NavItem to={`/topics/${item.slug}`}> {item.title} </NavItem>}
-            </ScrollMenu>
-
-            <NavItem>View all</NavItem>
-        </Container>
-
-    )
-}
+)
 
 const Container = styled.div`
   display: flex;
@@ -40,6 +42,5 @@ const NavItem = styled(Link)`
     color: #111;
   }
 `;
-
 
 export default TopicsLnb;

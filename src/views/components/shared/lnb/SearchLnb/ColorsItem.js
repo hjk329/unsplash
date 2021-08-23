@@ -1,64 +1,72 @@
-import React, {useState} from 'react';
-import styled, {css} from 'styled-components';
-import qs from "qs";
-import _ from "lodash";
-import cn from "classnames";
-import {Link} from "react-router-dom";
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+import qs from 'qs';
+import _ from 'lodash';
+import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
-import Contain from "../../Contain";
-import DropBox from "../../DropBox";
+import Contain from '../../Contain';
+import DropBox from '../../DropBox';
 
-const ColorsItem = ({query, queryParams}) => {
+const ColorsItem = ({ query, queryParams }) => {
+  const [open, setOpen] = useState(false);
 
-    const [open, setOpen] = useState(false);
+  const colors = ['black_and_white', 'black', 'white', 'yellow', 'orange', 'red', 'purple', 'magenta', 'green', 'teal', 'blue']
 
-    const color = ["black_and_white", "black", "white", "yellow", "orange", "red", "purple", "magenta", "green", "teal", "blue"]
-
-    return (
-        <Container>
-            <Name onClick={() => setOpen(v=>!v)}>
-                Any color
-                <CaretDown/>
-            </Name>
-            {
-                open &&
-                <Contain checkContain={() => setOpen(false)}>
+  return (
+    <Container>
+      <Name onClick={() => setOpen((v) => !v)}>
+        Any color
+        <CaretDown />
+      </Name>
+      {
+        open
+                && (
+                  <Contain checkContain={() => setOpen(false)}>
                     <DropBox menu={[
-                        <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
-                            ...(_.omit(queryParams, ['color'])),
+                      <DropMenuItem
+                        to={`/search/photos/${query}?${qs.stringify({
+                          ...(_.omit(queryParams, ['color'])),
                         })}`}
-                                      className={cn({isActive: !queryParams?.color})}
-
-                        >Any color</DropMenuItem>,
-                        <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
-                            ...queryParams,
-                            color: 'black_and_white'
+                        className={cn({ isActive: !queryParams?.color })}
+                      >
+                        Any color
+                      </DropMenuItem>,
+                      <DropMenuItem
+                        to={`/search/photos/${query}?${qs.stringify({
+                          ...queryParams,
+                          color: 'black_and_white',
                         })}`}
-                                      className={cn({isActive: queryParams?.color === 'black_and_white'})}
-                        >Black and White</DropMenuItem>,
-                        <DropMenuItem disabled>
-                            Tones
-                            <ColorList>
-                                {
-                                    color.map((color) => (
-                                        <ColorItem color={color} to={`/search/photos/${query}?${qs.stringify({
-                                            ...queryParams,
-                                            color
-                                        })}`}>
-                                            <span/>
-                                        </ColorItem>
-                                    ))
-                                }
-                            </ColorList>
-                        </DropMenuItem>,
+                        className={cn({ isActive: queryParams?.color === 'black_and_white' })}
+                      >
+                        Black and White
+                      </DropMenuItem>,
+                      <DropMenuItem disabled>
+                        Tones
+                        <ColorList>
+                          {
+                            colors.map((color) => (
+                              <ColorItem
+                                color={color}
+                                to={`/search/photos/${query}?${qs.stringify({
+                                  ...queryParams,
+                                  color,
+                                })}`}
+                              >
+                                <span />
+                              </ColorItem>
+                            ))
+                          }
+                        </ColorList>
+                      </DropMenuItem>,
                     ]}
                     />
-                </Contain>
+                  </Contain>
+                )
 
-
-            }
-        </Container>
-    )
+      }
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -107,7 +115,7 @@ const ColorItem = styled(Link)`
 
   span {
     display: block;
-    background: ${props => props.color};
+    background: ${(props) => props.color};
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -115,7 +123,7 @@ const ColorItem = styled(Link)`
 
 
   &:hover {
-    background-color: ${p => p.color};
+    background-color: ${(p) => p.color};
     border-color: #eee;
   }
 `;
@@ -132,7 +140,7 @@ const DropMenuItem = styled(Link)`
   &.isActive {
     color: #111;
 
-    ${p => !p.disabled & css`
+    ${(p) => !p.disabled & css`
       background: #f5f5f5;
     `}
   }

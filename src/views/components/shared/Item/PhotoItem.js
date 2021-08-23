@@ -1,46 +1,45 @@
 import React from 'react';
 import styled from 'styled-components'
 
-import ActionButtons from "../../Photos/PhotoDetail/ActionButtons";
-import IconButton from "../Button/IconButton";
-import {IconDownload, IconHeart, IconPlus} from "../../../../icons";
-import AvatarInfo from "../AvatarInfo";
+import ActionButtons from '../../Photos/PhotoDetail/ActionButtons';
+import IconButton from '../Button/IconButton';
+import { IconDownload, IconHeart, IconPlus } from '../../../../icons';
+import AvatarInfo from '../AvatarInfo';
 
-
-const PhotoItem = ({data, onClickItem}) => {
-    return (
-        <Container onClick={() => onClickItem(data.id)}>
-            <Thumb>
-                <img src={data.urls?.regular} alt=""/>
-            </Thumb>
-            <Desc>
-                <DescHeader>
-                    {
-                        data.sponsorship &&
-                        <UserProfile className={'right'}>
+const PhotoItem = ({ data, onClickItem }) => (
+  <Container onClick={() => onClickItem(data.id)}>
+    <Thumb>
+      <img src={data.urls?.regular} alt="" />
+    </Thumb>
+    <Desc>
+      <DescHeader>
+        {
+          data.sponsorship
+                        && (
+                          <UserProfile className="right">
                             <h3>Sponsored</h3>
-                        </UserProfile>
-                    }
-                    <ActionButtons>
-                        <IconButton icon={<IconHeart/>}/>
-                        <IconButton icon={<IconPlus/>}/>
-                    </ActionButtons>
-                </DescHeader>
+                          </UserProfile>
+                        )
+        }
+        <ActionButtons>
+          <IconButton icon={<IconHeart />} />
+          <IconButton icon={<IconPlus />} />
+        </ActionButtons>
+      </DescHeader>
 
-                <DescFooter>
-                    <AvatarInfo
-                        imageUrl={data.sponsorship ? data.sponsorship?.sponsor?.profile_image.medium : data.user.profile_image.medium}
-                        name={data.sponsorship ? data.sponsorship?.sponsor?.name : data.user.name}
-                        description={data.sponsorship ? data.sponsorship?.tagline : data.user.for_hire ? 'Available for hire' : ''}
-                    />
-                    <ActionButtons>
-                        <IconButton icon={<IconDownload/>}/>
-                    </ActionButtons>
-                </DescFooter>
-            </Desc>
-        </Container>
-    )
-}
+      <DescFooter>
+        <AvatarInfo
+          imageUrl={data.sponsorship ? data.sponsorship?.sponsor?.profile_image.medium : data.user.profile_image.medium}
+          name={data.sponsorship ? data.sponsorship?.sponsor?.name : data.user.name}
+          description={data.sponsorship ? data.sponsorship?.tagline : data.user.for_hire ? 'Available for hire' : ''}
+        />
+        <ActionButtons>
+          <IconButton icon={<IconDownload />} />
+        </ActionButtons>
+      </DescFooter>
+    </Desc>
+  </Container>
+)
 
 const Container = styled.div`
   position: relative;
@@ -126,6 +125,5 @@ const DescFooter = styled.div`
   right: 0;
   padding: 20px;
 `;
-
 
 export default PhotoItem;

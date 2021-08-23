@@ -1,18 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Filter from "./Filter";
-import Nav from "./Nav";
+import Filter from './Filter';
+import Nav from './Nav';
 
-
-const SearchLnb = () => {
-    return (
-        <Container>
-            <Nav/>
-            <Filter/>
-        </Container>
-    )
-}
+const SearchLnb = () => (
+  <Container>
+    <Nav />
+    <Filter />
+  </Container>
+)
 
 const Container = styled.div`
   display: flex;

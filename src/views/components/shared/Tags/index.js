@@ -1,17 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-
-const Tags = ({tags=[]}) => {
-    return (
-        <Container>
-            {
-                tags.map(tag => <Tag>{tag.title}</Tag>)
-            }
-        </Container>
-    )
-}
+const Tags = ({ tags = [] }) => (
+  <Container>
+    {
+      tags.map((tag) => <Tag>{tag.title}</Tag>)
+    }
+  </Container>
+)
 
 const Container = styled.div`
   display: flex;

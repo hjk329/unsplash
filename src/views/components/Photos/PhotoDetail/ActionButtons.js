@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ActionButtons = ({children}) => {
-    return (
-        <Container>
-            {children}
-        </Container>
-    )
-}
+const ActionButtons = ({ children }) => (
+  <Container>
+    {children}
+  </Container>
+)
 
 const Container = styled.div`
   display: flex;

@@ -1,26 +1,24 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames'
 
-import {IconZoomIn, IconZoomOut} from "../../../../icons";
+import { IconZoomIn, IconZoomOut } from '../../../../icons';
 
+const Image = ({ imageUrl }) => {
+  const [zoom, setZoom] = useState(false);
 
-const Image = ({imageUrl}) => {
-
-    const [zoom, setZoom] = useState(false);
-
-    return (
-        <Container className={cn("PhotoImage", {zoom})}>
-            <ImageBox>
-                <IconCtrl onClick={() => setZoom(v => !v)}>
-                    {
-                        zoom ? <IconZoomOut/> : <IconZoomIn/>
-                    }
-                </IconCtrl>
-                <img src={imageUrl} alt=""/>
-            </ImageBox>
-        </Container>
-    )
+  return (
+    <Container className={cn('PhotoImage', { zoom })}>
+      <ImageBox>
+        <IconCtrl onClick={() => setZoom((v) => !v)}>
+          {
+            zoom ? <IconZoomOut /> : <IconZoomIn />
+          }
+        </IconCtrl>
+        <img src={imageUrl} alt="" />
+      </ImageBox>
+    </Container>
+  )
 }
 
 const Container = styled.div`

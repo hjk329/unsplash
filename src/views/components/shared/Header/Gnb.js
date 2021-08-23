@@ -1,34 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import SearchBox from "../SearchBox";
-import Nav from "./Nav";
-import {IconLogo} from "../../../../icons";
-import {DefaultButton} from "../Button/Button.Styled";
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
+import SearchBox from '../SearchBox';
+import Nav from './Nav';
+import { IconLogo } from '../../../../icons';
+import { DefaultButton } from '../Button/Button.Styled';
 
-const Gnb = () => {
-    return (
-        <Container>
-            <Logo to={'/'}>
-                <IconLogo/>
-                <LogoText>
-                    <h2>Unsplash</h2>
-                    <p>Photos for everyone</p>
-                </LogoText>
-            </Logo>
-            <SearchBox shape={'round'}/>
-            <Nav/>
-            <Buttons>
-                <DefaultButton outline>Submit a photo</DefaultButton>
-                <DefaultButton>Login</DefaultButton>
-                <DefaultButton sort={'event'}>Join free</DefaultButton>
+const Gnb = () => (
+  <Container>
+    <Logo to="/">
+      <IconLogo />
+      <LogoText>
+        <h2>Unsplash</h2>
+        <p>Photos for everyone</p>
+      </LogoText>
+    </Logo>
+    <SearchBox shape="round" />
+    <Nav />
+    <Buttons>
+      <DefaultButton outline>Submit a photo</DefaultButton>
+      <DefaultButton>Login</DefaultButton>
+      <DefaultButton sort="event">Join free</DefaultButton>
 
-            </Buttons>
-        </Container>
-    )
-}
+    </Buttons>
+  </Container>
+)
 
 const Container = styled.div`
   display: flex;

@@ -1,20 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {IconDots} from "../../../../icons";
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
+import { IconDots } from '../../../../icons';
 
-const Nav = () => {
-    return (
-        <Container>
-            <NavItem>Brands</NavItem>
-            <NavItem>Explore</NavItem>
-            <NavItem>Blog</NavItem>
-            <NavItem><IconDots/></NavItem>
-        </Container>
-    )
-}
+const Nav = () => (
+  <Container>
+    <NavItem>Brands</NavItem>
+    <NavItem>Explore</NavItem>
+    <NavItem>Blog</NavItem>
+    <NavItem><IconDots /></NavItem>
+  </Container>
+)
 
 const Container = styled.nav`
   display: flex;

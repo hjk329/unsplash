@@ -1,17 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const DropBox = ({menu = []}) => {
-
-    return (
-        <Container>
-            {
-                menu.map((item) => item)
-            }
-        </Container>
-    )
-}
+const DropBox = ({ menu = [] }) => (
+  <Container>
+    {
+      menu.map((item) => item)
+    }
+  </Container>
+)
 
 const Container = styled.div`
   position: absolute;

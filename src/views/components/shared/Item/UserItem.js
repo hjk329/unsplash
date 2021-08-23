@@ -1,49 +1,51 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import AvatarInfo from "../AvatarInfo";
-import IconButton from "../Button/IconButton";
-import ActionButtons from "../../Photos/PhotoDetail/ActionButtons";
-import {IconAddUser} from "../../../../icons";
-import GridList from "../List/GridList";
-import UserPhotoItem from "./UserPhotoItem";
+import AvatarInfo from '../AvatarInfo';
+import IconButton from '../Button/IconButton';
+import ActionButtons from '../../Photos/PhotoDetail/ActionButtons';
+import { IconAddUser } from '../../../../icons';
+import GridList from '../List/GridList';
+import UserPhotoItem from './UserPhotoItem';
 
+const UserItem = ({ item }) => {
+  const {
+    name,
+    profile_image,
+    username,
+    photos,
+  } = item;
 
-const UserItem = ({item}) => {
-
-    const {
-        name,
-        profile_image,
-        username,
-        photos
-    } = item;
-
-    return (
-        <Container>
-            <UserHeader>
-                <AvatarInfo
-                    imageUrl={profile_image.large}
-                    name={name}
-                    description={username}
-                    size={'large'}
-                />
-                <ActionButtons>
-                    <IconButton icon={<IconAddUser/>}
-                                size={18}/>
-                </ActionButtons>
-            </UserHeader>
-            <PreviewPhotos>
-                <GridList data={photos.length > 0 ? photos : Array(3).fill(1)}
-                          gutter={4}>
-                    {(item) => <UserPhotoItem item={item}/>}
-                </GridList>
-            </PreviewPhotos>
-            <ButtonProfile>
-                View profile
-            </ButtonProfile>
-        </Container>
-    )
+  return (
+    <Container>
+      <UserHeader>
+        <AvatarInfo
+          imageUrl={profile_image.large}
+          name={name}
+          description={username}
+          size="large"
+        />
+        <ActionButtons>
+          <IconButton
+            icon={<IconAddUser />}
+            size={18}
+          />
+        </ActionButtons>
+      </UserHeader>
+      <PreviewPhotos>
+        <GridList
+          data={photos.length > 0 ? photos : Array(3).fill(1)}
+          gutter={4}
+        >
+          {(items) => <UserPhotoItem item={items} />}
+        </GridList>
+      </PreviewPhotos>
+      <ButtonProfile>
+        View profile
+      </ButtonProfile>
+    </Container>
+  )
 }
 
 const Container = styled.div`

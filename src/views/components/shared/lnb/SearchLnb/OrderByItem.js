@@ -1,47 +1,52 @@
-import React, {useState} from 'react';
-import styled, {css} from 'styled-components';
-import qs from "qs";
-import cn from "classnames";
-import {Link} from "react-router-dom";
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+import qs from 'qs';
+import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
-import Contain from "../../Contain";
-import DropBox from "../../DropBox";
+import Contain from '../../Contain';
+import DropBox from '../../DropBox';
 
-const OrderByItem = ({query, queryParams}) => {
+const OrderByItem = ({ query, queryParams }) => {
+  const [open, setOpen] = useState(false);
 
-    const [open, setOpen] = useState(false);
-
-
-    return (
-        <Container>
-            <Name onClick={() => setOpen(v=>!v)}>
-                Sort by Relevance
-                <CaretDown/>
-            </Name>
-            {
-                open &&
-                <Contain checkContain={() => setOpen(false)}>
+  return (
+    <Container>
+      <Name onClick={() => setOpen((v) => !v)}>
+        Sort by Relevance
+        <CaretDown />
+      </Name>
+      {
+        open
+                && (
+                  <Contain checkContain={() => setOpen(false)}>
                     <DropBox menu={[
-                        <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
-                            ...queryParams,
-                            order_by: 'relevant'
+                      <DropMenuItem
+                        to={`/search/photos/${query}?${qs.stringify({
+                          ...queryParams,
+                          order_by: 'relevant',
                         })}`}
-                                      className={cn({isActive: queryParams?.order_by === 'relevant'})}
-                        >Relevance</DropMenuItem>,
-                        <DropMenuItem to={`/search/photos/${query}?${qs.stringify({
-                            ...queryParams,
-                            order_by: 'latest'
+                        className={cn({ isActive: queryParams?.order_by === 'relevant' })}
+                      >
+                        Relevance
+                      </DropMenuItem>,
+                      <DropMenuItem
+                        to={`/search/photos/${query}?${qs.stringify({
+                          ...queryParams,
+                          order_by: 'latest',
                         })}`}
-                                      className={cn({isActive: queryParams?.order_by === 'latest'})}
-                        >Newest</DropMenuItem>,
+                        className={cn({ isActive: queryParams?.order_by === 'latest' })}
+                      >
+                        Newest
+                      </DropMenuItem>,
                     ]}
                     />
-                </Contain>
+                  </Contain>
+                )
 
-
-            }
-        </Container>
-    )
+      }
+    </Container>
+  )
 }
 
 const Container = styled.div`
@@ -83,7 +88,7 @@ const DropMenuItem = styled(Link)`
   &.isActive {
     color: #111;
 
-    ${p => !p.disabled & css`
+    ${(p) => !p.disabled & css`
       background: #f5f5f5;
     `}
   }

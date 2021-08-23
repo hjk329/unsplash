@@ -1,22 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const UserProfile = ({ user }) => {
+  if (!user) return 'loading...';
 
-const UserProfile = ({user}) => {
-
-    if (!user) return 'loading...';
-
-    return (
-        <Container>
-            <Avatar>
-                <img src={user.profile_image.medium} alt=""/>
-            </Avatar>
-            <Info>
-                <h3>{user?.name}</h3>
-                <p>{user.username}</p>
-            </Info>
-        </Container>
-    )
+  return (
+    <Container>
+      <Avatar>
+        <img src={user.profile_image.medium} alt="" />
+      </Avatar>
+      <Info>
+        <h3>{user?.name}</h3>
+        <p>{user.username}</p>
+      </Info>
+    </Container>
+  )
 }
 
 const Container = styled.div`

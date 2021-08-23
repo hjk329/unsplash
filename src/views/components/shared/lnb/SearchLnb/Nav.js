@@ -1,37 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link, useParams} from "react-router-dom";
+import { Link, useParams } from 'react-router-dom';
 import cn from 'classnames'
 
-import {IconCollections, IconPhotos, IconUsers} from "../../../../../icons";
-
+import { IconCollections, IconPhotos, IconUsers } from '../../../../../icons';
 
 const Nav = () => {
+  const { category, query } = useParams()
 
-    const {category, query} = useParams()
-
-    return (
-        <Container>
-            <NavLink to={`/search/photos/${query}`}
-            className={cn({isActive : category === 'photos'})}
-            >
-                <IconPhotos/>
-                photos
-            </NavLink>
-            <NavLink to={`/search/collections/${query}`}
-                     className={cn({isActive : category === 'collections'})}
-            >
-                <IconCollections/>
-                collections
-            </NavLink>
-            <NavLink to={`/search/users/${query}`}
-                     className={cn({isActive : category === 'users'})}
-            >
-                <IconUsers/>
-                users
-            </NavLink>
-        </Container>
-    )
+  return (
+    <Container>
+      <NavLink
+        to={`/search/photos/${query}`}
+        className={cn({ isActive: category === 'photos' })}
+      >
+        <IconPhotos />
+        photos
+      </NavLink>
+      <NavLink
+        to={`/search/collections/${query}`}
+        className={cn({ isActive: category === 'collections' })}
+      >
+        <IconCollections />
+        collections
+      </NavLink>
+      <NavLink
+        to={`/search/users/${query}`}
+        className={cn({ isActive: category === 'users' })}
+      >
+        <IconUsers />
+        users
+      </NavLink>
+    </Container>
+  )
 }
 
 const Container = styled.div`

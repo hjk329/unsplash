@@ -1,29 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const IosLoader = () => {
-    return (
-        <Container>
-            <Icon>
-                <div className="spinner">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </Icon>
-        </Container>
-    )
-}
+const IosLoader = () => (
+  <Container>
+    <Icon>
+      <div className="spinner">
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
+    </Icon>
+  </Container>
+)
 
 const Container = styled.div`
   display: flex;

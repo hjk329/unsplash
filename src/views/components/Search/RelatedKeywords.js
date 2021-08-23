@@ -1,22 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import ScrollMenu from "../shared/ScrollMenu";
+import ScrollMenu from '../shared/ScrollMenu';
 
-
-const RelatedKeywords = ({data}) => {
-    return (
-        <Container>
-            <ScrollMenu data={data}>
-                {(item) => (
-                    <KeywordItem key={item.title} to={`/search/photos/${item.title}`}>
-                        {item.title}
-                    </KeywordItem>)}
-            </ScrollMenu>
-        </Container>
-    )
-}
+const RelatedKeywords = ({ data }) => (
+  <Container>
+    <ScrollMenu data={data}>
+      {(item) => (
+        <KeywordItem key={item.title} to={`/search/photos/${item.title}`}>
+          {item.title}
+        </KeywordItem>
+      )}
+    </ScrollMenu>
+  </Container>
+)
 
 const Container = styled.div`
   margin-bottom: 72px;

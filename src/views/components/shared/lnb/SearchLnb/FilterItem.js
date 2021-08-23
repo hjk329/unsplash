@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const FilterItem = ({children}) => {
+const FilterItem = ({ children }) => {
+  const [open, setOpen] = useState(false);
 
-    const [open, setOpen] = useState(false);
-
-    return (
-        <Container>
-            {children}
-        </Container>
-    )
+  return (
+    <Container>
+      {children}
+    </Container>
+  )
 }
 
 const Container = styled.div`

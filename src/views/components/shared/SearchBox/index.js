@@ -1,42 +1,44 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import cn from 'classnames';
-import {IconSearch} from "../../../../icons";
-import {Button} from "../Button/Button.Styled";
 
+import { IconSearch } from '../../../../icons';
+import { Button } from '../Button/Button.Styled';
 
-const SearchBox = ({shape}) => {
-    const [query, setQuery] = useState('');
+const SearchBox = ({ shape }) => {
+  const [query, setQuery] = useState('');
 
-    const history = useHistory();
+  const history = useHistory();
 
-    const onSubmit = (event) => {
-        event.preventDefault();
-        history.push(`/search/photos/${query}`)
-    }
+  const onSubmit = (event) => {
+    event.preventDefault();
+    history.push(`/search/photos/${query}`)
+  }
 
-    const onChange = (event) => {
-        setQuery(event.target.value);
+  const onChange = (event) => {
+    setQuery(event.target.value);
+  }
 
-    }
+  return (
+    <Container className={cn('SearchBox', shape)}>
+      <Form onSubmit={onSubmit}>
+        <Label>
+          <StyledButton>
+            <IconSearch />
+          </StyledButton>
+          <Input
+            type="search"
+            onChange={onChange}
+            id="foo"
+            value={query}
+            placeholder="Search free high-resolution photos"
+          />
+        </Label>
 
-    return (
-        <Container className={cn("SearchBox", shape)}>
-            <Form onSubmit={onSubmit}>
-                <Label>
-                    <StyledButton>
-                        <IconSearch/>
-                    </StyledButton>
-                    <Input type="search" onChange={onChange} id="foo"
-                           value={query}
-                           placeholder={"Search free high-resolution photos"}
-                    />
-                </Label>
-
-            </Form>
-        </Container>
-    )
+      </Form>
+    </Container>
+  )
 }
 
 const Container = styled.div`

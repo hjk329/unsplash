@@ -1,45 +1,43 @@
 import React from 'react';
 import styled from 'styled-components'
-import {useDispatch} from "react-redux";
+import { useDispatch } from 'react-redux';
 
-import PhotoItem from "../Item/PhotoItem";
-import {makePhotosGroup} from "../../../../lib/common";
-import {Action} from "../../../../redux/popup/redux";
+import PhotoItem from '../Item/PhotoItem';
+import { makePhotosGroup } from '../../../../lib/common';
+import { Action } from '../../../../redux/popup/redux';
 
+const PhotoList = ({ data = [] }) => {
+  const photoGroup = makePhotosGroup(data);
 
-const PhotoList = ({data = []}) => {
+  const dispatch = useDispatch();
 
+  const onClickItem = (id) => {
+    window.history.pushState({}, null, `/photos/${id}`)
+    dispatch(Action.Creators.showPopup(id))
+  }
 
-    const photoGroup = makePhotosGroup(data);
-
-    const dispatch = useDispatch();
-
-    const onClickItem = (id) => {
-        window.history.pushState({}, null, `/photos/${id}`)
-        dispatch(Action.Creators.showPopup(id))
-    }
-
-    return (
-        <Container className={"PhotoListContainer"}>
-            <Row className={"Row"}>
-                {
-                    photoGroup.map((photosGroup, groupIndex) => (
-                        <Col>
-                            {
-                                photosGroup.map((item) => (
-                                    <ItemWrapper>
-                                        <PhotoItem data={item}
-                                                    onClickItem={onClickItem}
-                                        />
-                                    </ItemWrapper>
-                                ))
-                            }
-                        </Col>
-                    ))
-                }
-            </Row>
-        </Container>
-    )
+  return (
+    <Container className="PhotoListContainer">
+      <Row className="Row">
+        {
+          photoGroup.map((photosGroup, groupIndex) => (
+            <Col>
+              {
+                photosGroup.map((item) => (
+                  <ItemWrapper>
+                    <PhotoItem
+                      data={item}
+                      onClickItem={onClickItem}
+                    />
+                  </ItemWrapper>
+                ))
+              }
+            </Col>
+          ))
+        }
+      </Row>
+    </Container>
+  )
 }
 
 const Container = styled.div`

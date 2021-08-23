@@ -1,27 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const PhotoInfo = ({ views, downloads }) => (
+  <Container>
+    <InfoItem>
+      <Title>Views</Title>
+      <Content>{views.toLocaleString('ko-KR') || '--'}</Content>
+    </InfoItem>
 
-const PhotoInfo = ({views, downloads}) => {
-    return (
-        <Container>
-            <InfoItem>
-                <Title>Views</Title>
-                <Content>{views.toLocaleString('ko-KR') || '--'}</Content>
-            </InfoItem>
+    <InfoItem>
+      <Title>Downloads</Title>
+      <Content>{downloads.toLocaleString('ko-KR') || '--'}</Content>
+    </InfoItem>
 
-            <InfoItem>
-                <Title>Downloads</Title>
-                <Content>{downloads.toLocaleString('ko-KR') || '--'}</Content>
-            </InfoItem>
-
-            <InfoItem>
-                <Title>Featured in</Title>
-                <Content>Editorial</Content>
-            </InfoItem>
-        </Container>
-    )
-}
+    <InfoItem>
+      <Title>Featured in</Title>
+      <Content>Editorial</Content>
+    </InfoItem>
+  </Container>
+)
 
 const Container = styled.div`
   display: flex;

@@ -1,15 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const PhotoSection = ({title, children}) => {
-    return (
-        <Container className={`PhotoSection ${title}`}>
-            <Title>{title}</Title>
-            {children}
-        </Container>
-    )
-}
+const PhotoSection = ({ title, children }) => (
+  <Container className={`PhotoSection ${title}`}>
+    <Title>{title}</Title>
+    {children}
+  </Container>
+)
 
 const Container = styled.div`
   padding: 0 15px;

@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Button = styled.button`
   display: flex;
@@ -30,14 +30,14 @@ export const DefaultButton = styled(Button)`
     color: #111;
   }
   
-  ${props => props.outline && css `
+  ${(props) => props.outline && css`
     border-color: #d1d1d1;
     &:hover{
       border-color: #111;
     }
   `}
   
-  ${props => props.sort === 'event' && css `
+  ${(props) => props.sort === 'event' && css`
     background: #3cb46e;
     color: #fff;
     &:hover{

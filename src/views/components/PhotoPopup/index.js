@@ -1,41 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useSelector} from "react-redux";
+import { useSelector } from 'react-redux';
 
-import PhotoByIdContainer from "../../containers/PhotoByIdContainer";
-import PhotoRelatedContainer from "../../containers/PhotoRelatedContainer";
-import Tags from "../shared/Tags";
-import PhotoSection from "../Photos/PhotoSection";
-import {IconClose} from "../../../icons";
-import RelatedCollectionsContainer from "../../containers/RelatedCollectionsContainer";
+import PhotoByIdContainer from '../../containers/PhotoByIdContainer';
+import PhotoRelatedContainer from '../../containers/PhotoRelatedContainer';
+import Tags from '../shared/Tags';
+import PhotoSection from '../Photos/PhotoSection';
+import { IconClose } from '../../../icons';
+import RelatedCollectionsContainer from '../../containers/RelatedCollectionsContainer';
 
-const PhotoPopup = ({onClose}) => {
+const PhotoPopup = ({ onClose }) => {
+  const tags = useSelector((state) => state.photos.photoById.tags)
 
-    const tags = useSelector(state => state.photos.photoById.tags)
-
-    return (
-        <Container>
-            <Track>
-                <Content>
-                    <PhotoByIdContainer/>
-                    <PhotoSection title={'Related Tags'}>
-                        <Tags tags={tags}/>
-                    </PhotoSection>
-                    <PhotoSection title={'Related Photos'}>
-                        <PhotoRelatedContainer/>
-                    </PhotoSection>
-                    <PhotoSection title={'Related Collections'}>
-                        <RelatedCollectionsContainer/>
-                    </PhotoSection>
-                </Content>
-            </Track>
-            <Screen onClick={onClose}>
-                <Button>
-                    <IconClose/>
-                </Button>
-            </Screen>
-        </Container>
-    )
+  return (
+    <Container>
+      <Track>
+        <Content>
+          <PhotoByIdContainer />
+          <PhotoSection title="Related Tags">
+            <Tags tags={tags} />
+          </PhotoSection>
+          <PhotoSection title="Related Photos">
+            <PhotoRelatedContainer />
+          </PhotoSection>
+          <PhotoSection title="Related Collections">
+            <RelatedCollectionsContainer />
+          </PhotoSection>
+        </Content>
+      </Track>
+      <Screen onClick={onClose}>
+        <Button>
+          <IconClose />
+        </Button>
+      </Screen>
+    </Container>
+  )
 }
 
 const Container = styled.div`
